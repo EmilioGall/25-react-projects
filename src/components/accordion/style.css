@@ -1,0 +1,39 @@
+.wrapper {
+   display: flex;
+   height: 100vh;
+   width: 100vw;
+   justify-content: center;
+   align-items: center;
+
+   .accordion {
+      width: 80%;
+
+      h1 {
+         text-align: center;
+         margin-bottom: 30px;
+      
+      }
+   
+      .item {
+         background-color: lightseagreen;
+         margin-bottom: 20px;
+         padding: 10px 20px;
+      
+         .title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+         
+         }
+         
+         .content {
+            height: auto;
+         
+         }
+
+      }
+      
+   }
+
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import data from './data';
+import './style.css';
 
 export default function Accordion() {
 
@@ -18,16 +19,17 @@ export default function Accordion() {
 
       <div className="wrapper">
 
-         <h1>Accordion</h1>
-
          <div className="accordion">
+
+            <h1>Accordion</h1>
+
             {
 
                data && data.length > 0 ?
 
                   data.map((dataItem) =>
 
-                     <div className="item">
+                     <div key={dataItem.id} className="item">
 
                         <div className="title" onClick={() => handleSingleSelection(dataItem.id)}>
 
@@ -41,7 +43,7 @@ export default function Accordion() {
 
                            selected == dataItem.id ?
 
-                              <div>
+                              <div className="content">
 
                                  {dataItem.answer}
 
@@ -59,6 +61,7 @@ export default function Accordion() {
                   <div>No Data found!</div>
 
             }
+
          </div>
 
       </div>
