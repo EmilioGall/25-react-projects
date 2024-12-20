@@ -5,12 +5,44 @@ import './style.css';
 export default function Accordion() {
 
    const [selected, setSelected] = useState(null);
+   const [multiSelection, setMultiSelection] = useState(false);
+   const [selectedArray, setSelectedArray] = useState([]);
 
-   function handleSingleSelection(getCurrentId) {
+   function handleSingleSelection(currentId) {
 
-      console.log(getCurrentId);
+      console.log(currentId);
 
-      setSelected(getCurrentId == selected ? null : getCurrentId);
+      setSelected(currentId == selected ? null : currentId);
+
+   }
+
+   function changeSelectionType() {
+
+      multiSelection ? setMultiSelection(false) : setMultiSelection(true);
+
+   }
+
+   function handleMultiSelection(currentId) {
+
+      console.log(currentId);
+
+      const cpySelectedArray = [...selectedArray];
+
+      const currentIdIndex = cpySelectedArray.indexOf(currentId);
+
+      console.log(currentId);
+
+      if (currentIdIndex == -1) {
+
+         cpySelectedArray.push(currentId);
+
+      } else {
+
+         cpySelectedArray.splice(currentIdIndex, 1);
+
+      };
+
+      setSelectedArray(cpySelectedArray);
 
    }
 
@@ -19,9 +51,19 @@ export default function Accordion() {
 
       <div className="wrapper">
 
-         <div className="accordion">
+         <h1>Accordion</h1>
 
-            <h1>Accordion</h1>
+         {
+
+            multiSelection
+
+               ? <button className="ms-btn" onClick={changeSelectionType}>Disable Multi-selection</button>
+
+               : <button className="ms-btn" onClick={() => setMultiSelection(!multiSelection)}>Enable Multi-selection</button>
+
+         }
+
+         <div className="accordion">
 
             {
 
@@ -31,7 +73,7 @@ export default function Accordion() {
 
                      <div key={dataItem.id} className="item">
 
-                        <div className="title" onClick={() => handleSingleSelection(dataItem.id)}>
+                        <div className="title" onClick={multiSelection ? () => handleMultiSelection(dataItem.id) : () => handleSingleSelection(dataItem.id)}>
 
                            <h3>{dataItem.question}</h3>
 
@@ -41,16 +83,27 @@ export default function Accordion() {
 
                         {
 
-                           selected == dataItem.id ?
+                           multiSelection
 
-                              <div className="content">
+                              ? selectedArray.indexOf(dataItem.id) != -1
 
-                                 {dataItem.answer}
+                                 ? <div className="content">
 
-                              </div>
-                              :
+                                    {dataItem.answer}
 
-                              null
+                                 </div>
+
+                                 : null
+
+                              : selected == dataItem.id
+
+                                 ? <div className="content">
+
+                                    {dataItem.answer}
+
+                                 </div>
+
+                                 : null
 
                         }
 
