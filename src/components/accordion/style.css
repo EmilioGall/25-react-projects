@@ -4,16 +4,22 @@
    width: 100vw;
    justify-content: center;
    align-items: center;
+   flex-direction: column;
+   gap: 20px;
+
+   h1 {
+      text-align: center;
+      font-weight: bold;
+   
+   }
+
+   button {
+      padding: 5px 10px;
+   }
 
    .accordion {
       width: 80%;
 
-      h1 {
-         text-align: center;
-         margin-bottom: 30px;
-      
-      }
-   
       .item {
          background-color: lightseagreen;
          margin-bottom: 20px;
