@@ -46,12 +46,11 @@ export default function Accordion() {
 
    }
 
-
    return (
 
-      <div className="wrapper">
+      <div className="bg-lime-200">
 
-         <h1>Accordion</h1>
+         <h1 className="text-red-500 text-3xl font-bold underline">Accordion</h1>
 
          {
 
