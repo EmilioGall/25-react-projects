@@ -48,21 +48,21 @@ export default function Accordion() {
 
    return (
 
-      <div className="bg-lime-200">
+      <div className="wrapper flex flex-col justify-center items-center gap-5 h-screen w-screen font-mono bg-lime-200">
 
-         <h1 className="text-red-500 text-3xl font-bold underline">Accordion</h1>
+         <h1 className="text-4xl text-center font-bold">Accordion</h1>
 
          {
 
             multiSelection
 
-               ? <button className="ms-btn" onClick={changeSelectionType}>Disable Multi-selection</button>
+               ? <button className="border-4 border-lime-700 rounded-lg text-lime-700 text-xl px-5 py-3" onClick={changeSelectionType}>Disable Multi-selection</button>
 
-               : <button className="ms-btn" onClick={() => setMultiSelection(!multiSelection)}>Enable Multi-selection</button>
+               : <button className="border-4 border-lime-700 rounded-lg text-lime-700 text-xl px-5 py-3" onClick={() => setMultiSelection(!multiSelection)}>Enable Multi-selection</button>
 
          }
 
-         <div className="accordion">
+         <div className="accordion w-4/5">
 
             {
 
@@ -70,9 +70,9 @@ export default function Accordion() {
 
                   data.map((dataItem) =>
 
-                     <div key={dataItem.id} className="item">
+                     <div key={dataItem.id} className="item bg-lime-400 rounded-lg cursor-pointer mb-5 px-5 py-3" onClick={multiSelection ? () => handleMultiSelection(dataItem.id) : () => handleSingleSelection(dataItem.id)}>
 
-                        <div className="title" onClick={multiSelection ? () => handleMultiSelection(dataItem.id) : () => handleSingleSelection(dataItem.id)}>
+                        <div className="title flex justify-between items-center font-bold text-xl">
 
                            <h3>{dataItem.question}</h3>
 
@@ -86,7 +86,7 @@ export default function Accordion() {
 
                               ? selectedArray.indexOf(dataItem.id) != -1
 
-                                 ? <div className="content">
+                                 ? <div className="content h-auto w-4/5">
 
                                     {dataItem.answer}
 
@@ -96,7 +96,7 @@ export default function Accordion() {
 
                               : selected == dataItem.id
 
-                                 ? <div className="content">
+                                 ? <div className="content h-auto w-4/5">
 
                                     {dataItem.answer}
 
