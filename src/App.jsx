@@ -8,7 +8,7 @@ function App() {
     <>
 
       {/* Accordion Component */}
-      {/* <Accordion /> */}
+      <Accordion />
 
       {/* Random Color Generator Component */}
       <ColorGenerator />
