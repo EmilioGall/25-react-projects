@@ -34,6 +34,18 @@ export default function ImageSlider({ url, page, limit }) {
 
    };
 
+   function handlePrevious() {
+
+      setCurSlide(curSlide === 0 ? images.length - 1 : curSlide - 1);
+
+   };
+
+   function handleNext() {
+      
+      setCurSlide(curSlide === images.length - 1 ? 0 : curSlide + 1);
+
+   };
+
    useEffect(() => {
 
       if (url !== '') {
@@ -67,23 +79,23 @@ export default function ImageSlider({ url, page, limit }) {
 
          <h2>Image Slider</h2>
 
-         <div className="relative flex justify-center items-center gap-5 w-1/2 h-1/2 bg-blue-500">
+         <div className="relative flex justify-center items-center gap-5 w-1/2">
 
-            <BsArrowLeftCircleFill className="absolute left-4 drop-shadow-lg text-white cursor-pointer" size={40} />
+            <BsArrowLeftCircleFill className="absolute left-4 drop-shadow-lg text-white cursor-pointer" size={40} onClick={handlePrevious}/>
 
             {
                images && images.length ?
 
-                  images.map(image => 
+                  images.map((image, index) => 
 
-                     <img className="rounded-lg shadow-lg hover:shadow-red-300 w-100 h-100" key={image.id} src={image.download_url} alt={image.download_url} />
+                     <img className={`rounded-lg shadow-lg hover:shadow-red-300 w-100' ${curSlide === index ? '' : 'hidden'}`} key={image.id} src={image.download_url} alt={image.download_url} />
 
                   ) :
 
                   null
             }
 
-            <BsArrowRightCircleFill className="absolute right-4 drop-shadow-lg text-white cursor-pointer" size={40} />
+            <BsArrowRightCircleFill className="absolute right-4 drop-shadow-lg text-white cursor-pointer" size={40} onClick={handleNext}/>
 
             <span className="absolute bottom-4 flex gap-2">
                {
