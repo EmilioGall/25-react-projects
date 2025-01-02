@@ -16,10 +16,10 @@ function App() {
       <ColorGenerator />
 
       {/* Star Rating Component */}
-      <StarRating />
+      <StarRating starsNum={10}/>
 
       {/* Image Slider Component */}
-      <ImageSlider />
+      <ImageSlider url={'https://picsum.photos/v2/list'} limit={'10'}/>
 
     </>
   )
