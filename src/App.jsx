@@ -2,6 +2,7 @@ import './App.css';
 import Accordion from './components/01-accordion/index';
 import ColorGenerator from './components/02-random-color-generator/index';
 import StarRating from './components/03-star-rating/index';
+import ImageSlider from './components/04-image-slider/index';
 
 function App() {
 
@@ -16,6 +17,9 @@ function App() {
 
       {/* Star Rating Component */}
       <StarRating />
+
+      {/* Image Slider Component */}
+      <ImageSlider />
 
     </>
   )

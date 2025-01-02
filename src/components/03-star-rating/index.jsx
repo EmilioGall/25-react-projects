@@ -33,7 +33,7 @@ export default function StarRating({ starsNum = 5 }) {
 
    return (
 
-      <div className="h-screen w-full flex justify-center items-center gap-5 p-10 bg-red-800">
+      <section className="h-screen w-full flex justify-center items-center gap-5 p-10 bg-red-800">
          {
 
             [...Array(starsNum)].map((value, index) => {
@@ -51,7 +51,7 @@ export default function StarRating({ starsNum = 5 }) {
             })
 
          }
-      </div>
+      </section>
 
    );
 

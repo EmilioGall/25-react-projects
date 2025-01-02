@@ -140,7 +140,7 @@ export default function ColorGenerator() {
 
    return (
 
-      <div className="h-screen w-full p-10" style={{ background: color }}>
+      <section className="h-screen w-full p-10" style={{ background: color }}>
 
          <div className="flex justify-center gap-5 mb-3">
 
@@ -185,7 +185,7 @@ export default function ColorGenerator() {
 
          </div>
 
-      </div>
+      </section>
 
    );
 
