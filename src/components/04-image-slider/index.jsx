@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill, Bs1CircleFill } from 'react-icons/bs';
 
-export default function ImageSlider({ url, limit }) {
+export default function ImageSlider({ url, page, limit }) {
 
    const [images, setImages] = useState([]);
    const [curSlide, setCurSlide] = useState(0);
@@ -12,7 +13,7 @@ export default function ImageSlider({ url, limit }) {
       try {
          setLoading(true);
 
-         const response = await fetch(getUrl);
+         const response = await fetch(`${getUrl}?page=${page}&limit=${limit}`);
          const data = await response.json();
 
          if (data) {
@@ -43,7 +44,7 @@ export default function ImageSlider({ url, limit }) {
 
    }, [url]);
 
-   if(loading) {
+   if (loading) {
       <section className="h-screen w-full flex justify-center items-center gap-5 p-10 bg-blue-300">
 
          <h2>Loading data, please wait...</h2>
@@ -51,7 +52,7 @@ export default function ImageSlider({ url, limit }) {
       </section>
    };
 
-   if(errorMsg !== null) {
+   if (errorMsg !== null) {
       <section className="h-screen w-full flex justify-center items-center gap-5 p-10 bg-blue-300">
 
          <h2>Error occurred</h2>
@@ -62,9 +63,43 @@ export default function ImageSlider({ url, limit }) {
    };
 
    return (
-      <section className="h-screen w-full flex justify-center items-center gap-5 p-10 bg-blue-300">
+      <section className="h-screen w-full flex flex-col justify-center items-center gap-5 p-10 bg-blue-300">
 
          <h2>Image Slider</h2>
+
+         <div className="flex justify-center items-center gap-5">
+
+            <BsArrowLeftCircleFill />
+
+            {
+               images && images.length ?
+
+                  images.map(image => (
+
+                     <img src={image.download_url} alt="" />
+
+                  )) :
+
+                  null
+            }
+
+            <BsArrowRightCircleFill />
+
+            <span>
+               {
+                  images && images.length ?
+
+                     images.map((_, index) => (
+
+                        <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" key={index}>{ index }</button>
+
+                     )) :
+
+                     null
+               }
+            </span>
+
+         </div>
 
       </section>
    );

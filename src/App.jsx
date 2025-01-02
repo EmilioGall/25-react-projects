@@ -10,16 +10,22 @@ function App() {
     <>
 
       {/* Accordion Component */}
-      <Accordion />
+      {/* <Accordion /> */}
 
       {/* Random Color Generator Component */}
-      <ColorGenerator />
+      {/* <ColorGenerator /> */}
 
       {/* Star Rating Component */}
-      <StarRating starsNum={10}/>
+      {/* <StarRating
+        starsNum={10}
+      /> */}
 
       {/* Image Slider Component */}
-      <ImageSlider url={'https://picsum.photos/v2/list'} limit={'10'}/>
+      <ImageSlider
+        url={'https://picsum.photos/v2/list'}
+        page={1}
+        limit={10}
+      />
 
     </>
   )
