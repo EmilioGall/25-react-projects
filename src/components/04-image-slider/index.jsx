@@ -67,33 +67,33 @@ export default function ImageSlider({ url, page, limit }) {
 
          <h2>Image Slider</h2>
 
-         <div className="flex justify-center items-center gap-5">
+         <div className="relative flex justify-center items-center gap-5 w-1/2 h-1/2 bg-blue-500">
 
-            <BsArrowLeftCircleFill />
+            <BsArrowLeftCircleFill className="absolute left-4 drop-shadow-lg text-white cursor-pointer" size={40} />
 
             {
                images && images.length ?
 
-                  images.map(image => (
+                  images.map(image => 
 
-                     <img src={image.download_url} alt="" />
+                     <img className="rounded-lg shadow-lg hover:shadow-red-300 w-100 h-100" key={image.id} src={image.download_url} alt={image.download_url} />
 
-                  )) :
+                  ) :
 
                   null
             }
 
-            <BsArrowRightCircleFill />
+            <BsArrowRightCircleFill className="absolute right-4 drop-shadow-lg text-white cursor-pointer" size={40} />
 
-            <span>
+            <span className="absolute bottom-4 flex gap-2">
                {
                   images && images.length ?
 
-                     images.map((_, index) => (
+                     images.map((_, index) => 
 
-                        <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" key={index}>{ index }</button>
+                        <button className="bg-white hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded-full shadow" key={index}>{ index }</button>
 
-                     )) :
+                     ) :
 
                      null
                }
