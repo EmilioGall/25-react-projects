@@ -180,7 +180,7 @@ export default function ColorGenerator() {
 
             <h3 className="text-6xl">{colorType === 'hex' ? 'HEX Color' : 'RGBa Color'}</h3>
 
-            <h1 className="text-4xl font-bold">{color}</h1>
+            <h2 className="text-4xl font-bold">{color}</h2>
 
          </div>
 

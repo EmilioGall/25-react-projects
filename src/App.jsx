@@ -10,15 +10,15 @@ function App() {
     <>
 
       {/* Accordion Component */}
-      {/* <Accordion /> */}
+      <Accordion />
 
       {/* Random Color Generator Component */}
-      {/* <ColorGenerator /> */}
+      <ColorGenerator />
 
       {/* Star Rating Component */}
-      {/* <StarRating
+      <StarRating
         starsNum={10}
-      /> */}
+      />
 
       {/* Image Slider Component */}
       <ImageSlider

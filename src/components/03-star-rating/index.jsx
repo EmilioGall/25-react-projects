@@ -32,24 +32,32 @@ export default function StarRating({ starsNum = 5 }) {
 
    return (
 
-      <section className="h-screen w-full flex justify-center items-center gap-5 p-10 bg-red-800">
-         {
+      <section className="h-screen w-full flex flex-col justify-center items-center gap-10 p-10 bg-red-800">
 
-            [...Array(starsNum)].map((value, index) => {
+         <h2 className="text-4xl text-center font-bold">Star rating</h2>
 
-               const starNum = index + 1;
+         <div className="flex justify-center items-center gap-2">
 
-               return <FaStar
-                  key={index}
-                  className={starNum <= (hoverRating || rating) ? 'text-yellow-500' : 'text-slate-500'}
-                  onClick={() => { handleClick(starNum) }}
-                  onMouseMove={() => { handleMouseHover(starNum) }}
-                  onMouseLeave={() => { handleMouseLeave(starNum) }}
-                  size={40}
-               />
-            })
+            {
 
-         }
+               [...Array(starsNum)].map((value, index) => {
+
+                  const starNum = index + 1;
+
+                  return <FaStar
+                     key={index}
+                     className={starNum <= (hoverRating || rating) ? 'text-yellow-500' : 'text-slate-500'}
+                     onClick={() => { handleClick(starNum) }}
+                     onMouseMove={() => { handleMouseHover(starNum) }}
+                     onMouseLeave={() => { handleMouseLeave(starNum) }}
+                     size={40}
+                  />
+               })
+
+            }
+
+         </div>
+
       </section>
 
    );

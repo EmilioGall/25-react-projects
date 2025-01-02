@@ -41,8 +41,14 @@ export default function ImageSlider({ url, page, limit }) {
    };
 
    function handleNext() {
-      
+
       setCurSlide(curSlide === images.length - 1 ? 0 : curSlide + 1);
+
+   };
+
+   function handleSelection(getSlideIndex) {
+
+      setCurSlide(getSlideIndex);
 
    };
 
@@ -75,35 +81,42 @@ export default function ImageSlider({ url, page, limit }) {
    };
 
    return (
-      <section className="h-screen w-full flex flex-col justify-center items-center gap-5 p-10 bg-blue-300">
+      <section className="relative h-screen w-full flex flex-col justify-center items-center gap-5 bg-blue-300">
 
-         <h2>Image Slider</h2>
+         <h2 className="relative text-4xl text-center font-bold">Image Slider</h2>
 
-         <div className="relative flex justify-center items-center gap-5 w-1/2">
+         <div className="relative flex justify-center items-center w-6/12 h-3/12 bg-blue-600 rounded-xl">
 
-            <BsArrowLeftCircleFill className="absolute left-4 drop-shadow-lg text-white cursor-pointer" size={40} onClick={handlePrevious}/>
+            <BsArrowLeftCircleFill className="absolute left-4 drop-shadow-xl shadow-blue-500 text-white cursor-pointer" size={40} onClick={handlePrevious} />
 
             {
                images && images.length ?
 
-                  images.map((image, index) => 
+                  images.map((image, index) =>
 
-                     <img className={`rounded-lg shadow-lg hover:shadow-red-300 w-100' ${curSlide === index ? '' : 'hidden'}`} key={image.id} src={image.download_url} alt={image.download_url} />
+                     <img className={`rounded-xl shadow-lg shadow-blue-500 object-cover h-full w-full ${curSlide === index ? '' : 'hidden'}`} key={image.id} src={image.download_url} alt={image.download_url} />
 
                   ) :
 
                   null
             }
 
-            <BsArrowRightCircleFill className="absolute right-4 drop-shadow-lg text-white cursor-pointer" size={40} onClick={handleNext}/>
+            <BsArrowRightCircleFill className="absolute right-4 drop-shadow-xl text-white cursor-pointer" size={40} onClick={handleNext} />
 
             <span className="absolute bottom-4 flex gap-2">
                {
                   images && images.length ?
 
-                     images.map((_, index) => 
+                     images.map((_, index) =>
 
-                        <button className="bg-white hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded-full shadow" key={index}>{ index }</button>
+                        <button
+                           className={`${curSlide === index ? 'bg-blue-600 text-white hover:bg-blue-800' : 'bg-white text-gray-800 hover:bg-gray-300'} font-semibold size-12 aspect-square border border-gray-400 rounded-full shadow`}
+                           key={index}
+                           onClick={()=> handleSelection(index)}>
+
+                           {index+1}
+
+                        </button>
 
                      ) :
 

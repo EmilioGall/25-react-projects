@@ -50,7 +50,7 @@ export default function Accordion() {
 
       <section className="wrapper flex flex-col justify-center items-center gap-5 h-screen w-full font-mono bg-lime-200">
 
-         <h1 className="text-4xl text-center font-bold">Accordion</h1>
+         <h2 className="text-4xl text-center font-bold">Accordion</h2>
 
          {
 
