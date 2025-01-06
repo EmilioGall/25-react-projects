@@ -11,18 +11,29 @@ export default function LoadMoreBtn({ url }) {
 
       try {
 
-         const response = fetch(`https://dummyjson.com/products?limit=20&skip=${counter === 0 ? 0 : counter*20}`);
+         setLoading(true);
 
-         console.log(response);
+         const resp = await fetch(`https://dummyjson.com/products?limit=${showedProducts}&skip=${counter === 0 ? 0 : counter * showedProducts}`);
 
-         const result = await response.json();
+         const result = await resp.json();
 
-         console.log(result);
-         
+         console.log(result.products);
 
-      } catch(e) {
+         if (result && result.products && result.products.length) {
+
+            setProducts(result.products);
+
+            setLoading(false);
+
+         };
+
+
+
+      } catch (e) {
 
          console.log(e);
+
+         setLoading(false);
 
       };
 
@@ -35,11 +46,28 @@ export default function LoadMoreBtn({ url }) {
    }, []);
 
    return (
-      <section className="relative h-screen w-full flex flex-col justify-center items-center gap-5 bg-orange-400">
+      <section className="relative w-full flex flex-col justify-center items-center gap-5 bg-orange-400">
 
          <h2 className="relative text-4xl text-center font-bold">Load More Button</h2>
 
-         <div>
+         {
+            loading ? <p>Loading Data. Please wait.</p> : ''
+         }
+
+         <div className="grid grid-cols-4 gap-4 p-5">
+
+            {
+               products && products.length ?
+                  products.map((product) => (
+                     <div className="border border-black" key={product.id}>
+
+                        <img src={product.thumbnail} alt={product.title} />
+                        <h4>{product.title}</h4>
+
+                     </div>
+                  )) :
+                  ''
+            }
 
          </div>
 
