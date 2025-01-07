@@ -48,7 +48,7 @@ export default function Accordion() {
 
    return (
 
-      <section className="wrapper flex flex-col justify-center items-center gap-5 h-screen w-full font-mono bg-lime-200">
+      <section id="accordion" className="wrapper flex flex-col justify-center items-center gap-5 h-screen w-full font-mono bg-lime-200">
 
          <h2 className="text-4xl text-center font-bold">Accordion</h2>
 

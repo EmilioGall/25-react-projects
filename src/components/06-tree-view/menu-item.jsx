@@ -14,7 +14,7 @@ export default function MenuItem({ item }) {
 
    return <li className="md:ml-4">
 
-      <a href="#" className={`flex justify-center md:justify-start gap-2 items-center rounded-lg hover:bg-cyan-600 px-3 py-1 ${displayCurChildren[item.label] ? 'mb-1.5 md:bg-slate-600' : ''}`}>
+      <a href={item.to} className={`flex justify-center md:justify-start gap-2 items-center rounded-lg hover:bg-cyan-600 px-3 py-1 ${displayCurChildren[item.label] ? 'mb-1.5 md:bg-slate-600' : ''}`}>
 
          {
             item && item.number ?

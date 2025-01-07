@@ -3,39 +3,39 @@ const sideMenu = [
    {
       number: '01',
       label: 'Accordion',
-      to: '/'
+      to: '#accordion'
    },
 
    {
       number: '02',
       label: 'Color generator',
-      to: '/'
+      to: '#random-color-generetor'
    },
 
    {
       number: '03',
       label: 'Star rating',
-      to: '/'
+      to: '#star-rating'
    },
 
    {
       number: '04',
       label: 'Image Slider',
-      to: '/'
+      to: '#image-slider'
    },
 
    {
       number: '05',
       label: 'Load-more button',
-      to: '/',
+      to: '#load-more-button',
       parts: [
          {
             label: 'Start',
-            to: '/',
+            to: '#load-more-button',
          },
          {
             label: 'End',
-            to: '/',
+            to: '#load-more-button-end',
          }
       ]
    },
@@ -43,7 +43,7 @@ const sideMenu = [
    {
       number: '06',
       label: 'Tree view',
-      to: '/'
+      to: '#tree-view'
    },
 
 ];

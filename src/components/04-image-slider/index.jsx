@@ -81,7 +81,7 @@ export default function ImageSlider({ url, page, limit }) {
    };
 
    return (
-      <section className="relative h-screen w-full flex flex-col justify-center items-center gap-5 bg-blue-300">
+      <section id="image-slider" className="relative h-screen w-full flex flex-col justify-center items-center gap-5 font-mono bg-blue-300">
 
          <h2 className="relative text-4xl text-center font-bold">Image Slider</h2>
 

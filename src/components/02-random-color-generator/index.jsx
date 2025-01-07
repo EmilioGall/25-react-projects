@@ -139,7 +139,7 @@ export default function ColorGenerator() {
 
    return (
 
-      <section className="h-screen w-full p-10" style={{ background: color }}>
+      <section id="random-color-generetor" className="h-screen w-full font-mono p-10" style={{ background: color }}>
 
          <div className="flex justify-center gap-5 mb-3">
 

@@ -73,7 +73,7 @@ export default function LoadMoreBtn({ url }) {
    }, [products]);
 
    return (
-      <section className="w-full flex flex-col justify-center items-center gap-5 py-5 bg-orange-400">
+      <section id="load-more-button" className="w-full flex flex-col justify-center items-center gap-5 py-5 font-mono bg-orange-400">
 
          <h2 className="text-4xl text-center font-bold">Load More Button</h2>
 
@@ -81,7 +81,7 @@ export default function LoadMoreBtn({ url }) {
 
             <label className="text-lg text-center px-2" htmlFor="productsNum">How many products in each showed group?</label>
 
-            <select className="apperance-none px-2 py-1 rounded" name="productsNum" id="productsNum" onChange={(e) => setShowedProducts(e.target.value)}>
+            <select value={showedProducts} className="apperance-none px-2 py-1 rounded" name="productsNum" id="productsNum" onChange={(e) => setShowedProducts(e.target.value)}>
                <option value="5">5</option>
                <option value="10">10</option>
                <option value="15">15</option>
@@ -112,7 +112,20 @@ export default function LoadMoreBtn({ url }) {
          </div>
 
          <div>
-            <button className={`border border-black bg-slate-300 rounded text-center px-3 py-2 ${disableBtn ? '' : 'cursor-pointer hover:bg-slate-400'}`} disabled={disableBtn} onClick={() => setCounter(counter + 1)}>Load more products</button>
+
+            <label className="text-lg text-center px-2" htmlFor="productsNum">How many products in each showed group?</label>
+
+            <select value={showedProducts} className="apperance-none px-2 py-1 rounded" name="productsNum" id="productsNum" onChange={(e) => setShowedProducts(e.target.value)}>
+               <option value="5">5</option>
+               <option value="10">10</option>
+               <option value="15">15</option>
+               <option value="20">20</option>
+            </select>
+
+         </div>
+
+         <div>
+            <button id="load-more-button-end" className={`border border-black bg-slate-300 rounded text-center px-3 py-2 ${disableBtn ? '' : 'cursor-pointer hover:bg-slate-400'}`} disabled={disableBtn} onClick={() => setCounter(counter + 1)}>Load more products</button>
          </div>
 
          <div>

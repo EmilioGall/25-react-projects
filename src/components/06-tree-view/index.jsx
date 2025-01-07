@@ -6,7 +6,7 @@ export default function TreeView({ sideMenu = [] }) {
 
    const [sideBarOn, SetSideBarOn] = useState(false);
 
-   return <div className="p-3 font-mono">
+   return <section id="tree-view" className="p-3 font-mono">
 
       <div className="flex gap-2 p-2 items-center justify-center md:justify-start">
 
@@ -18,6 +18,6 @@ export default function TreeView({ sideMenu = [] }) {
 
       <MenuList menuList={sideMenu} />
 
-   </div>
+   </section>
 
 };

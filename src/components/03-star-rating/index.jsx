@@ -32,7 +32,7 @@ export default function StarRating({ starsNum = 5 }) {
 
    return (
 
-      <section className="h-screen w-full flex flex-col justify-center items-center gap-10 p-10 bg-red-800">
+      <section id="star-rating" className="h-screen w-full flex flex-col justify-center items-center gap-10 p-10 font-mono bg-red-800">
 
          <h2 className="text-4xl text-center font-bold">Star rating</h2>
 
