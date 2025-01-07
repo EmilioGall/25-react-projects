@@ -79,7 +79,7 @@ export default function LoadMoreBtn({ url }) {
 
          <div>
 
-            <label className="text-lg text-center px-2" htmlFor="productsNum">How many products in each showed group?</label>
+            <label className="text-md text-center px-2" htmlFor="productsNum">How many products in each showed group?</label>
 
             <select value={showedProducts} className="apperance-none px-2 py-1 rounded" name="productsNum" id="productsNum" onChange={(e) => setShowedProducts(e.target.value)}>
                <option value="5">5</option>
@@ -94,15 +94,16 @@ export default function LoadMoreBtn({ url }) {
             loading ? <p>Loading Data. Please wait.</p> : ''
          }
 
-         <div className="grid grid-cols-5 gap-4 p-5">
+         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 p-5">
 
             {
                products && products.length ?
                   products.map((product) => (
-                     <div className="border border-black bg-slate-200 rounded-xl text-center p-3" key={product.id}>
+                     <div className="flex flex-col items-center bg-slate-200 rounded-xl text-center p-3" key={product.id}>
 
                         <img src={product.thumbnail} alt={product.title} />
-                        <h4 className="text-xl p-2">{product.title}</h4>
+
+                        <h4 className="text-lg p-2">{product.title}</h4>
 
                      </div>
                   )) :
@@ -113,7 +114,7 @@ export default function LoadMoreBtn({ url }) {
 
          <div>
 
-            <label className="text-lg text-center px-2" htmlFor="productsNum">How many products in each showed group?</label>
+            <label className="text-md text-center px-2" htmlFor="productsNum">How many products in each showed group?</label>
 
             <select value={showedProducts} className="apperance-none px-2 py-1 rounded" name="productsNum" id="productsNum" onChange={(e) => setShowedProducts(e.target.value)}>
                <option value="5">5</option>
