@@ -7,8 +7,8 @@ export default function MenuList({ menuList = [] }) {
       {
          menuList && menuList.length > 0 ?
 
-            menuList.map(menuItem => <MenuItem item={menuItem} />)
-            
+            menuList.map(menuItem => <MenuItem key={menuItem.label} item={menuItem} />)
+
             : null
 
       }

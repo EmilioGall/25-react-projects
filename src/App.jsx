@@ -17,7 +17,7 @@ function App() {
   return (
     <>
 
-      <section className="fixed top-0 left-0 z-40 h-screen transition-transform -translate-x-full sm:translate-x-0  sm:w-32 md:w-64">
+      <section className="fixed top-0 left-0 z-40 h-screen transition-transform -translate-x-full sm:translate-x-0  sm:w-32 md:w-64 bg-slate-500">
 
         {/* Tree View Component */}
         <TreeView sideMenu={sideMenu}/>
