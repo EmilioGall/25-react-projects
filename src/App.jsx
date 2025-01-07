@@ -17,7 +17,7 @@ function App() {
   return (
     <>
 
-      <section className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0">
+      <section className="fixed top-0 left-0 z-40 h-screen transition-transform -translate-x-full sm:translate-x-0  sm:w-32 md:w-64">
 
         <h1>Menu</h1>
 
@@ -26,7 +26,7 @@ function App() {
 
       </section>
 
-      <section>
+      <section className="sm:ml-32 md:ml-64">
 
         {/* Accordion Component */}
         <Accordion />
