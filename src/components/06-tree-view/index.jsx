@@ -4,8 +4,6 @@ import reactLogo from '../../assets/react.svg';
 
 export default function TreeView({ sideMenu = [] }) {
 
-   const [sideBarOn, SetSideBarOn] = useState(false);
-
    return <section id="tree-view" className="p-3 font-mono">
 
       <div className="flex gap-2 p-2 items-center justify-center md:justify-start">

@@ -7,16 +7,35 @@ import ImageSlider from './components/04-image-slider/index';
 import LoadMoreBtn from './components/05-load-more-btn/index';
 import TreeView from './components/06-tree-view/index';
 import sideMenu from './components/06-tree-view/data';
+import { RxHamburgerMenu } from "react-icons/rx";
 
 function App() {
+
+  const [sideBarOn, SetSideBarOn] = useState(false);
+
+  function handleToogleSideBar() {
+
+    SetSideBarOn(!sideBarOn);
+
+  };
 
   return (
     <>
 
-      <section className="fixed top-0 left-0 z-40 h-screen transition-all -translate-x-full sm:translate-x-0 sm:w-20 md:w-56 bg-slate-500">
+      <section>
 
-        {/* Tree View Component */}
-        <TreeView sideMenu={sideMenu}/>
+        <div className={`fixed top-0 left-0 z-40 h-screen transition-all -translate-x-full sm:translate-x-0 w-20 md:w-56 bg-slate-500 ${sideBarOn ? 'opacity-80 translate-x-0' : ''}`}>
+
+          {/* Tree View Component */}
+          <TreeView sideMenu={sideMenu} />
+
+        </div>
+
+        <button className={`fixed top-3 z-40 p-4 transition-all sm:ml-20 md:ml-56 sm:hidden text-center text-slate-300 bg-slate-500 opacity-80 ${sideBarOn ? 'translate-x-20 left-0 rounded-e-lg' : 'left-3 rounded-lg'}`} onClick={handleToogleSideBar}>
+
+          <RxHamburgerMenu className="font-bold text-2xl text-slate-100"/>
+
+        </button>
 
       </section>
 

@@ -33,7 +33,7 @@ export default function MenuItem({ item }) {
 
                   {
                      displayCurChildren[item.label] ?
-                     <SlArrowUp  className="font-bold text-md text-slate-100"/>
+                     <SlArrowUp className="font-bold text-md text-slate-100"/>
                      : <SlArrowDown className="font-bold text-md text-slate-100"/>
 
                   }
