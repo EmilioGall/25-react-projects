@@ -85,7 +85,7 @@ export default function ImageSlider({ url, page, limit }) {
 
          <h2 className="relative text-4xl text-center font-bold">Image Slider</h2>
 
-         <div className="relative flex justify-center items-center w-6/12 h-3/12 bg-blue-600 rounded-xl">
+         <div className="relative flex justify-center items-center w-11/12 lg:w-9/12 xl:w-7/12 bg-blue-600 rounded-xl">
 
             <BsArrowLeftCircleFill className="absolute left-4 drop-shadow-xl shadow-blue-500 text-white cursor-pointer" size={40} onClick={handlePrevious} />
 
@@ -110,7 +110,7 @@ export default function ImageSlider({ url, page, limit }) {
                      images.map((_, index) =>
 
                         <button
-                           className={`${curSlide === index ? 'bg-blue-600 text-white hover:bg-blue-800' : 'bg-white text-gray-800 hover:bg-gray-300'} font-semibold size-12 aspect-square border border-gray-400 rounded-full shadow`}
+                           className={`${curSlide === index ? 'bg-blue-600 text-white hover:bg-blue-800' : 'bg-white text-gray-800 hover:bg-gray-300'} font-semibold size-6 lg:size-8 xl:size-10 aspect-square border border-gray-400 rounded-full shadow`}
                            key={index}
                            onClick={()=> handleSelection(index)}>
 
