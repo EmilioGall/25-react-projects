@@ -1,4 +1,4 @@
-export const sideMenu = [
+const sideMenu = [
 
    {
       number: '01',
@@ -47,3 +47,5 @@ export const sideMenu = [
    },
 
 ];
+
+export default sideMenu;
