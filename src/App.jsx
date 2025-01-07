@@ -10,21 +10,17 @@ import sideMenu from './components/06-tree-view/data';
 
 function App() {
 
-  const [sideBarOn, SetSideBarOn] = useState(false);
-
-
-
   return (
     <>
 
-      <section className="fixed top-0 left-0 z-40 h-screen transition-transform -translate-x-full sm:translate-x-0  sm:w-32 md:w-64 bg-slate-500">
+      <section className="fixed top-0 left-0 z-40 h-screen transition-all -translate-x-full sm:translate-x-0 sm:w-20 md:w-56 bg-slate-500">
 
         {/* Tree View Component */}
         <TreeView sideMenu={sideMenu}/>
 
       </section>
 
-      <section className="sm:ml-32 md:ml-64">
+      <section className="transition-all sm:ml-20 md:ml-56">
 
         {/* Accordion Component */}
         <Accordion />

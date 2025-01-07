@@ -8,7 +8,7 @@ const sideMenu = [
 
    {
       number: '02',
-      label: 'Random color generator',
+      label: 'Color generator',
       to: '/'
    },
 
