@@ -28,7 +28,7 @@ const sideMenu = [
       number: '05',
       title: 'Load-more button',
       to: '/',
-      children: [
+      parts: [
          {
             title: 'Start',
             to: '/',

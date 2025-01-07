@@ -1,8 +1,30 @@
-export default function MenuItem({ item = {} }) {
+import MenuList from "./menu-list";
 
-   return <li className="bg-orange-600">
+export default function MenuItem({ item }) {
 
-      Menu Item
+   return <li className="ml-3">
+
+      <a href="#">
+
+         {
+            item && item.number ?
+
+               <span>{item.number}</span>
+
+               : null
+         }
+
+         <p>{item.title}</p>
+
+      </a>
+
+      {
+         item && item.parts && item.parts.length > 0 ?
+
+            <MenuList menuList={item.parts} />
+
+            : null
+      }
 
    </li>
 
