@@ -4,7 +4,7 @@ export default function LoadMoreBtn({ url }) {
 
    const [loading, setLoading] = useState(false);
    const [products, setProducts] = useState([]);
-   const [showedProducts, setShowedProducts] = useState(20);
+   const [showedProducts, setShowedProducts] = useState(5);
    const [counter, setCounter] = useState(0);
    const [disableBtn, setDisableBtn] = useState(false);
 
@@ -20,9 +20,9 @@ export default function LoadMoreBtn({ url }) {
 
          const result = await resp.json();
 
-         console.log(result);
+         // console.log(result);
 
-         console.log(result.products);
+         // console.log(result.products);
 
          if (result && result.products && result.products.length) {
 
@@ -31,7 +31,7 @@ export default function LoadMoreBtn({ url }) {
                const newProducts = result.products.filter(newProduct =>
 
                   !prevData.some(existingProduct => existingProduct.id === newProduct.id) // prevent duplicates
-                  
+
                );
 
                return [...prevData, ...newProducts];
@@ -58,11 +58,11 @@ export default function LoadMoreBtn({ url }) {
 
       fetchProducts();
 
-   }, [counter]);
+   }, [counter, showedProducts]);
 
    useEffect(() => {
 
-      console.log(products);
+      // console.log(products);
 
       if (products && products.length >= 194) {
 
@@ -73,9 +73,22 @@ export default function LoadMoreBtn({ url }) {
    }, [products]);
 
    return (
-      <section className="relative w-full flex flex-col justify-center items-center gap-5 py-5 bg-orange-400">
+      <section className="w-full flex flex-col justify-center items-center gap-5 py-5 bg-orange-400">
 
-         <h2 className="relative text-4xl text-center font-bold">Load More Button</h2>
+         <h2 className="text-4xl text-center font-bold">Load More Button</h2>
+
+         <div>
+
+            <label className="text-lg text-center px-2" htmlFor="productsNum">How many products in each showed group?</label>
+
+            <select className="apperance-none px-2 py-1 rounded" name="productsNum" id="productsNum" onChange={(e) => setShowedProducts(e.target.value)}>
+               <option value="5">5</option>
+               <option value="10">10</option>
+               <option value="15">15</option>
+               <option value="20">20</option>
+            </select>
+
+         </div>
 
          {
             loading ? <p>Loading Data. Please wait.</p> : ''
@@ -86,10 +99,10 @@ export default function LoadMoreBtn({ url }) {
             {
                products && products.length ?
                   products.map((product) => (
-                     <div className="border border-black" key={product.id}>
+                     <div className="border border-black bg-slate-200 rounded-xl text-center p-3" key={product.id}>
 
                         <img src={product.thumbnail} alt={product.title} />
-                        <h4>{product.title}</h4>
+                        <h4 className="text-xl p-2">{product.title}</h4>
 
                      </div>
                   )) :
@@ -99,12 +112,12 @@ export default function LoadMoreBtn({ url }) {
          </div>
 
          <div>
-            <button disabled={disableBtn} onClick={() => setCounter(counter + 1)}>Load more products</button>
+            <button className={`border border-black bg-slate-300 rounded text-center px-3 py-2 ${disableBtn ? '' : 'cursor-pointer hover:bg-slate-400'}`} disabled={disableBtn} onClick={() => setCounter(counter + 1)}>Load more products</button>
          </div>
 
          <div>
             {
-               disableBtn ? <p>All products are showed.</p> : null
+               disableBtn ? <p className="text-xl">All products are showed.</p> : null
             }
          </div>
 
