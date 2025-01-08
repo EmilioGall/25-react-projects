@@ -1,4 +1,4 @@
-// useEffect and useState hooks for component lifecycle and state management
+// Import necessary hooks from React for managing component state and lifecycle
 import { useEffect, useState } from "react";
 
 // Importing icons for navigation arrows from 'react-icons'
@@ -130,7 +130,7 @@ export default function ImageSlider({ url, page, limit }) {
       // Main section of the image slider component
       <section id="image-slider" className="relative h-screen w-full flex flex-col justify-center items-center gap-5 font-mono bg-blue-300">
 
-         {/* Image Slider Title */}
+         {/* Image Slider component Title */}
          <h2 className="relative text-4xl text-center font-bold">Image Slider</h2>
 
          <div className="relative flex justify-center items-center w-11/12 lg:w-9/12 xl:w-7/12 bg-blue-600 rounded-xl">
