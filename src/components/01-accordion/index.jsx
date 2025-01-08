@@ -7,7 +7,9 @@ import data from './data';
 // Import external CSS styles for the accordion
 import './style.css';
 
-// Define and export the Accordion component
+/**
+ * Description: Accordion component show a simple accordion template.
+ */
 export default function Accordion() {
 
    // State to track the currently selected item (for single selection mode)
@@ -73,7 +75,7 @@ export default function Accordion() {
       // Main section for the accordion component
       <section id="accordion" className="wrapper flex flex-col justify-center items-center gap-5 h-screen w-full font-mono bg-lime-200">
 
-         {/* Accordion Title */}
+         {/* Accordion component Title */}
          <h2 className="text-4xl text-center font-bold">Accordion</h2>
 
          {/* Button to toggle multi-selection mode */}

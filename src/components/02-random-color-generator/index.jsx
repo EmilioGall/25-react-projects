@@ -1,7 +1,9 @@
 // Import the useState hook from React to manage component state
 import { useState } from "react";
 
-// Define and export the ColorGenerator component
+/**
+ * Description: ColorGenerator component allows users to generate a random color code in HEX or RGBa form and switch between.
+ */
 export default function ColorGenerator() {
 
    // State to track the current color type (either 'rgba' or 'hex')
