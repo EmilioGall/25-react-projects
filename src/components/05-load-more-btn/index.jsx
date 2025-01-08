@@ -122,7 +122,7 @@ export default function LoadMoreBtn({ url }) {
             <label className="text-md text-center px-2" htmlFor="productsNum">How many products in each showed group?</label>
 
             {/* Select dropdown for users to choose how many products to display */}
-            <select value={showedProducts} className="apperance-none px-2 py-1 rounded" name="productsNum" id="productsNum" onChange={(e) => setShowedProducts(e.target.value)}>
+            <select value={showedProducts} className="apperance-none text-md px-1 rounded" name="productsNum" id="productsNum" onChange={(e) => setShowedProducts(e.target.value)}>
 
                {/* Options to select product limit */}
                <option value="5">5</option>
@@ -172,7 +172,7 @@ export default function LoadMoreBtn({ url }) {
 
             <button
                id="load-more-button-end" // Unique Id for the button
-               className={`border border-black bg-slate-300 rounded text-center px-3 py-2 ${disableBtn ? '' : 'cursor-pointer hover:bg-slate-400'}`} // Apply styles conditionally based on disabled state
+               className={`border border-black rounded text-center px-3 py-2 ${disableBtn ? '' : 'cursor-pointer hover:bg-slate-200'}`} // Apply styles conditionally based on disabled state
                disabled={disableBtn} // Disable button when all products have been shown
                onClick={() => setCounter(counter + 1)} // Increment counter to load more products
             >

@@ -160,7 +160,7 @@ export default function ColorGenerator() {
    return (
 
       // Main section for the color generator component
-      <section id="random-color-generetor" className="h-screen w-full font-mono p-10" style={{ background: color }}>
+      <section id="random-color-generetor" className="h-screen w-full flex flex-col justify-center items-center gap-2 font-mono p-10" style={{ background: color }}>
 
          {/* Button container to generate colors */}
          <div className="flex justify-center gap-5 mb-3">
