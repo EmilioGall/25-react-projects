@@ -1,4 +1,4 @@
-// Import necessary hooks from React library
+// Import the useState hook from React to manage component state
 import { useState } from "react";
 
 // Import the data containing questions and answers for the accordion
