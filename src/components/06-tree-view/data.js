@@ -46,6 +46,12 @@ const sideMenu = [
       to: '#tree-view'
    },
 
+   {
+      number: '07',
+      label: 'QR Code Generator',
+      to: '#qr-code-generator'
+   },
+
 ];
 
 export default sideMenu;
