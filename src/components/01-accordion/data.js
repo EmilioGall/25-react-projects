@@ -1,3 +1,5 @@
+// Define an array named 'data' that contains a list of objects.
+// Each object represents a question and its corresponding answer related to accordion components.
 const data = [
    {
       id: '1',
@@ -25,4 +27,6 @@ const data = [
    },
 ];
 
+// Export the data array as the default export of the module.
+// This allows other files to import and use this data, typically for populating an accordion component in a user interface.
 export default data;
