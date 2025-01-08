@@ -171,7 +171,8 @@ export default function ImageSlider({ url, page, limit }) {
                         <button
                            className={`${curSlide === index ? 'bg-blue-600 text-white hover:bg-blue-800' : 'bg-white text-gray-800 hover:bg-gray-300'} font-semibold size-6 lg:size-8 xl:size-10 aspect-square border border-gray-400 rounded-full shadow`}
                            key={index} // Use index as the key for matchability
-                           onClick={() => handleSelection(index)}> // On click, update the current slide
+                           onClick={() => handleSelection(index)} // On click, update the current slide 
+                        >
 
                            {index + 1} {/* Button text showing the slide number */}
 

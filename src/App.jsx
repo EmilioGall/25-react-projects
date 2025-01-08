@@ -9,6 +9,7 @@ import LoadMoreBtn from './components/05-load-more-btn/index';
 import TreeView from './components/06-tree-view/index';
 import sideMenu from './components/06-tree-view/data'; // Import data for the side menu of the Tree View
 import { RxHamburgerMenu } from "react-icons/rx"; // Import hamburger menu icon from React Icons
+import QrCodeGenerator from './components/07-qr-code-generator/index';
 
 // Define the main App component
 function App() {
@@ -74,6 +75,9 @@ function App() {
         <LoadMoreBtn
           url={'https://dummyjson.com/products'} // base URL to fetch products
         />
+
+        {/* QR Code Generator Component */}
+        <QrCodeGenerator />
 
       </section>
 
