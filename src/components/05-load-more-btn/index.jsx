@@ -16,7 +16,7 @@ export default function LoadMoreBtn({ url }) {
 
          setLoading(true);
 
-         const resp = await fetch(`https://dummyjson.com/products?limit=${showedProducts}&skip=${counter === 0 ? 0 : counter * showedProducts}`);
+         const resp = await fetch(`${url}?limit=${showedProducts}&skip=${counter === 0 ? 0 : counter * showedProducts}`);
 
          const result = await resp.json();
 
