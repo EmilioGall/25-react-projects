@@ -50,6 +50,7 @@ function App() {
         </button>
 
       </section>
+      {/* SideBar Section */}
 
       {/* Components Section */}
       <section className="transition-all sm:ml-20 md:ml-56">
@@ -84,6 +85,7 @@ function App() {
         <LightDarkMode />
 
       </section>
+      {/* Components Section */}
 
     </>
   )
