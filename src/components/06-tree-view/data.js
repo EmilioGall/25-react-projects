@@ -52,6 +52,12 @@ const sideMenu = [
       to: '#qr-code-generator'
    },
 
+   {
+      number: '08',
+      label: 'Light/Dark Mode',
+      to: '#light-dark-mode'
+   },
+
 ];
 
 export default sideMenu;
