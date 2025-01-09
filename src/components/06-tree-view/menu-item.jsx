@@ -1,11 +1,15 @@
 // Import the useState hook from React to manage component state
 import { useState } from "react";
 
+import { setItem, getItem, removeItem, clearStorage } from '../../storage';
+
 // MenuList for rendering sub-menu items
 import MenuList from "./menu-list";
 
 // Import icons for arrow indicators from 'react-icons'
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
+
+import sideMenu from '../06-tree-view/data';
 
 /**
  * MenuItem component represents an individual menu item and can contain nested menu items.
@@ -28,6 +32,28 @@ export default function MenuItem({ item }) {
 
    }
 
+   /**
+    * Toggles the display of the children menu items for the current menu item.
+    * @param {string} getCurLabel - The label of the current menu item used as the key.
+    */
+   function handleToogleVisibility() {
+
+      console.log(`getItem('scroll-indicator')`, getItem('scroll-indicator'));
+
+      if ((getItem('scroll-indicator') === false || getItem('scroll-indicator') === true)) {
+
+         setItem('scroll-indicator', !getItem('scroll-indicator'));
+
+      } else {
+
+         setItem('scroll-indicator', item.visible);
+
+      };
+
+      console.log(`getItem('scroll-indicator')`, getItem('scroll-indicator'));
+
+   };
+
    return (
 
       // List item for the menu
@@ -37,7 +63,7 @@ export default function MenuItem({ item }) {
          <div className={`flex justify-center md:justify-start gap-2 items-center rounded-lg hover:bg-cyan-600 px-3 py-1 ${displayCurChildren[item.label] ? 'mb-1.5 md:bg-slate-600' : ''}`}>
 
             <a href={item.to}
-            className={`flex justify-center md:justify-start gap-2 items-center`}
+               className={`flex justify-center md:justify-start gap-2 items-center`}
             >
 
                {
@@ -60,6 +86,25 @@ export default function MenuItem({ item }) {
 
                   // Toggle children on click
                   <span className="hidden md:flex cursor-pointer" onClick={() => handleToogleChildren(item.label)}>
+
+                     {
+                        displayCurChildren[item.label] ?
+                           <SlArrowUp className="font-bold text-md text-slate-100" /> // Show upward arrow if children are displayed
+                           : <SlArrowDown className="font-bold text-md text-slate-100" /> // Show downward arrow if children are hidden
+
+                     }
+
+                  </span>
+
+                  : null
+            }
+
+            {
+               // Check if there is a visibility key
+               item && (item.visible === false || item.visible === true) ?
+
+                  // Toggle visibility on click
+                  <span className="hidden md:flex cursor-pointer" onClick={() => handleToogleVisibility()}>
 
                      {
                         displayCurChildren[item.label] ?

@@ -62,7 +62,7 @@ const sideMenu = [
       number: '09',
       label: 'Scroll Indicator',
       to: '#scroll-indicator',
-      visible: true,
+      visible: false,
    },
 
 ];
