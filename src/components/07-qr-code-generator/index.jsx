@@ -59,7 +59,7 @@ export default function QrCodeGenerator() {
 
          </div>
 
-{/* Container to display the generated QR Code */}
+         {/* Container to display the generated QR Code */}
          <div className={`bg-white rounded-md p-3`}>
 
             <QRCode
