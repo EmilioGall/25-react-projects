@@ -1,5 +1,6 @@
 // Import necessary hooks and components from React and other modules.
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useStore } from './store';
 import './App.css'; // Import custom CSS for styling the App
 import Accordion from './components/01-accordion/index';
 import ColorGenerator from './components/02-random-color-generator/index';
@@ -16,16 +17,28 @@ import ScrollIndicator from './components/09-scroll-indicator/index';
 // Define the main App component
 function App() {
 
+  const { state, dispatch } = useStore();
+
   // useState hook to manage the state of sidebar visibility
-  const [sideBarOn, SetSideBarOn] = useState(false);
+  const [sideBarOn, setSideBarOn] = useState(false);
+
+  // useState hook to manage the state of sidebar visibility
+  const [scrollIndicatorOn, setScrollIndicatorOn] = useState(sideMenu[8].visible);
 
   // Function to toggle the sidebar on or off
   function handleToogleSideBar() {
 
     // Toggle the current state of sidebar
-    SetSideBarOn(!sideBarOn);
+    setSideBarOn(!sideBarOn);
 
   };
+
+  useEffect(()=>{
+
+    setScrollIndicatorOn(state.scrollIndicator)
+
+  }, [state.scrollIndicator])
+  
 
   return (
     <>
@@ -43,8 +56,8 @@ function App() {
 
         </div>
 
-        {/* SideBar - initially hidden off-screen on smaller screens */}
-        <div className={`fixed top-0 left-2 z-40 h-screen transition-all`}>
+        {/* Scroll Indicator - initially hidden off-screen */}
+        <div className={`fixed top-0 left-0 z-40 h-screen transition-all ${scrollIndicatorOn ? 'translate-x-2 ' : '-translate-x-full'}`}>
 
           {/* Tree View Component */}
           <ScrollIndicator />

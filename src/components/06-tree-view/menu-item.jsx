@@ -1,7 +1,7 @@
 // Import the useState hook from React to manage component state
 import { useState } from "react";
 
-import { setItem, getItem, removeItem, clearStorage } from '../../storage';
+import { useStore } from '../../store';
 
 // MenuList for rendering sub-menu items
 import MenuList from "./menu-list";
@@ -17,6 +17,8 @@ import sideMenu from '../06-tree-view/data';
  * @param {Object} item - Menu item object containing properties like label, to, and children.
  */
 export default function MenuItem({ item }) {
+
+   const { state, dispatch } = useStore();
 
    // State to manage which children's menus are displayed
    const [displayCurChildren, setDisplayCurChildren] = useState({})
@@ -38,19 +40,11 @@ export default function MenuItem({ item }) {
     */
    function handleToogleVisibility() {
 
-      console.log(`getItem('scroll-indicator')`, getItem('scroll-indicator'));
+      console.log(`state.scrollIndicator`, state.scrollIndicator);
 
-      if ((getItem('scroll-indicator') === false || getItem('scroll-indicator') === true)) {
+      dispatch({ type: 'TOGGLE_SCROLL_INDICATOR' });
 
-         setItem('scroll-indicator', !getItem('scroll-indicator'));
-
-      } else {
-
-         setItem('scroll-indicator', item.visible);
-
-      };
-
-      console.log(`getItem('scroll-indicator')`, getItem('scroll-indicator'));
+      console.log(`state.scrollIndicator`, state.scrollIndicator);
 
    };
 
