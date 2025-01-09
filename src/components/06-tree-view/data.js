@@ -28,7 +28,7 @@ const sideMenu = [
       number: '05',
       label: 'Load-more button',
       to: '#load-more-button',
-      parts: [
+      children: [
          {
             label: 'Start',
             to: '#load-more-button',
@@ -56,6 +56,13 @@ const sideMenu = [
       number: '08',
       label: 'Light/Dark Mode',
       to: '#light-dark-mode'
+   },
+
+   {
+      number: '09',
+      label: 'Scroll Indicator',
+      to: '#scroll-indicator',
+      visible: true,
    },
 
 ];
