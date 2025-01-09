@@ -7,7 +7,7 @@ import { useStore } from '../../store';
 import MenuList from "./menu-list";
 
 // Import icons for arrow indicators from 'react-icons'
-import { SlArrowDown, SlArrowUp } from "react-icons/sl";
+import { SlArrowDown, SlArrowUp, SlArrowRight, SlArrowLeft} from "react-icons/sl";
 
 import sideMenu from '../06-tree-view/data';
 
@@ -16,7 +16,7 @@ import sideMenu from '../06-tree-view/data';
  * It allows for toggling the visibility of its children if they exist.
  * @param {Object} item - Menu item object containing properties like label, to, and children.
  */
-export default function MenuItem({ item }) {
+export default function MenuItem({ item, itemId }) {
 
    const { state, dispatch } = useStore();
 
@@ -54,7 +54,7 @@ export default function MenuItem({ item }) {
       <li className="md:ml-4">
 
          {/* Render the link for the menu item with styling and conditional classes based on children visibility */}
-         <div className={`flex justify-center md:justify-start gap-2 items-center rounded-lg hover:bg-cyan-600 px-3 py-1 ${displayCurChildren[item.label] ? 'mb-1.5 md:bg-slate-600' : ''}`}>
+         <div className={`flex justify-center md:justify-start gap-2 items-center hover:bg-cyan-600 px-3 py-1 ${displayCurChildren[item.label] ? 'mb-1.5 md:bg-slate-600' : ''} ${state.scrollIndicator && itemId === 8 ? 'mb-1.5 md:bg-slate-600 rounded-e-lg' : 'rounded-lg'}`}>
 
             <a href={item.to}
                className={`flex justify-center md:justify-start gap-2 items-center`}
@@ -64,7 +64,7 @@ export default function MenuItem({ item }) {
                   item && item.number ?
 
                      // Display item number if available
-                     <span className="font-bold text-2xl text-slate-100">{item.number}</span>
+                     <span onClick={handleToogleVisibility} className="font-bold text-2xl text-slate-100">{item.number}</span>
 
                      : null
                }
@@ -101,9 +101,9 @@ export default function MenuItem({ item }) {
                   <span className="hidden md:flex cursor-pointer" onClick={() => handleToogleVisibility()}>
 
                      {
-                        displayCurChildren[item.label] ?
-                           <SlArrowUp className="font-bold text-md text-slate-100" /> // Show upward arrow if children are displayed
-                           : <SlArrowDown className="font-bold text-md text-slate-100" /> // Show downward arrow if children are hidden
+                        state.scrollIndicator ?
+                           <SlArrowLeft className="font-bold text-md text-slate-100" /> // Show upward arrow if children are displayed
+                           : <SlArrowRight className="font-bold text-md text-slate-100" /> // Show downward arrow if children are hidden
 
                      }
 

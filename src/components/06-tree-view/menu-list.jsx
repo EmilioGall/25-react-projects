@@ -18,7 +18,7 @@ export default function MenuList({ menuList = [] }) {
             menuList && menuList.length > 0 ?
 
                // Pass each menu item to MenuItem component
-               menuList.map(menuItem => <MenuItem key={menuItem.label} item={menuItem} />)
+               menuList.map((menuItem, menuItemId) => <MenuItem key={menuItem.label} item={menuItem} itemId={menuItemId} />)
 
                : null // Render nothing if no items are present
 
