@@ -110,7 +110,7 @@ export default function LoadMoreBtn({ url }) {
    return (
 
       // Main section of the Load-more button component
-      <section id="load-more-button" className="w-full flex flex-col justify-center items-center gap-5 py-5 font-mono bg-orange-400">
+      <section id="load-more-button" className="w-full text-slate-800 flex flex-col justify-center items-center gap-5 py-5 font-mono bg-orange-300">
 
          {/* Load-more Button component Title */}
          <h2 className="text-4xl text-center font-bold">Load More Button</h2>
@@ -172,7 +172,7 @@ export default function LoadMoreBtn({ url }) {
 
             <button
                id="load-more-button-end" // Unique Id for the button
-               className={`border border-black rounded text-center px-3 py-2 ${disableBtn ? '' : 'cursor-pointer hover:bg-slate-200'}`} // Apply styles conditionally based on disabled state
+               className={`border border-slate-800 rounded text-center px-3 py-2 ${disableBtn ? '' : 'cursor-pointer hover:bg-slate-800 hover:text-slate-200'}`} // Apply styles conditionally based on disabled state
                disabled={disableBtn} // Disable button when all products have been shown
                onClick={() => setCounter(counter + 1)} // Increment counter to load more products
             >
