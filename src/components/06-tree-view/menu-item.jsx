@@ -9,8 +9,6 @@ import MenuList from "./menu-list";
 // Import icons for arrow indicators from 'react-icons'
 import { SlArrowDown, SlArrowUp, SlArrowRight, SlArrowLeft} from "react-icons/sl";
 
-import sideMenu from '../06-tree-view/data';
-
 /**
  * MenuItem component represents an individual menu item and can contain nested menu items.
  * It allows for toggling the visibility of its children if they exist.
