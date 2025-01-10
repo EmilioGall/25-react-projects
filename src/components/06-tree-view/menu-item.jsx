@@ -1,6 +1,7 @@
 // Import the useState hook from React to manage component state
 import { useState } from "react";
 
+// Import useStore from the context/store to manage global state
 import { useStore } from '../../store';
 
 // MenuList for rendering sub-menu items
@@ -11,18 +12,23 @@ import { SlArrowDown, SlArrowUp, SlArrowRight, SlArrowLeft } from "react-icons/s
 
 /**
  * MenuItem component represents an individual menu item and can contain nested menu items.
- * It allows for toggling the visibility of its children if they exist.
- * @param {Object} item - Menu item object containing properties like label, to, and children.
+ * It allows toggling the visibility of its children if they exist.
+ * 
+ * @param {Object} item - The menu item object with properties like label, `to`, and children.
+ * @param {number|string} itemId - The unique identifier for the menu item, useful for styling and logic.
  */
 export default function MenuItem({ item, itemId }) {
 
+   // Get global state and dispatch function from the store
    const { state, dispatch } = useStore();
 
    // State to manage which children's menus are displayed
    const [displayCurChildren, setDisplayCurChildren] = useState({})
 
    /**
-    * Toggles the display of the children menu items for the current menu item.
+    * Toggles the visibility of the children menu items for the current menu item.
+    * Updates the displayCurChildren state with the new visibility status.
+    * 
     * @param {string} getCurLabel - The label of the current menu item used as the key.
     */
    function handleToogleChildren(getCurLabel) {
@@ -33,27 +39,28 @@ export default function MenuItem({ item, itemId }) {
    }
 
    /**
-    * Toggles the display of the children menu items for the current menu item.
-    * @param {string} getCurLabel - The label of the current menu item used as the key.
+    * Toggles the visibility of a specific element in the UI.
+    * Dispatches an action to toggle the global scroll indicator.
+    * This function may be used for dynamically showing or hiding UI elements based on the state.
     */
    function handleToogleVisibility() {
 
-      console.log(`state.scrollIndicator`, state.scrollIndicator);
-
+      // Dispatch action to toggle the scroll indicator state
       dispatch({ type: 'TOGGLE_SCROLL_INDICATOR' });
 
-      console.log(`state.scrollIndicator`, state.scrollIndicator);
+      // console.log(`state.scrollIndicator`, state.scrollIndicator);
 
    };
 
    return (
 
-      // List item for the menu
+      // Render the menu item as a list item
       <li className="md:ml-4">
 
-         {/* Render the link for the menu item with styling and conditional classes based on children visibility */}
+         {/* Render a container for the link with conditional styling */}
          <div className={`flex justify-center md:justify-start gap-2 items-center hover:bg-cyan-600 px-3 py-1 ${displayCurChildren[item.label] ? 'mb-1.5 md:bg-slate-600' : ''} ${state.scrollIndicator && itemId === 8 ? 'mb-1.5 bg-slate-600 rounded-e-lg' : 'rounded-lg'}`}>
 
+            {/* Anchor element for the menu item with its properties */}
             <a href={item.to}
                className={`flex justify-center md:justify-start gap-2 items-center`}
             >
@@ -76,11 +83,12 @@ export default function MenuItem({ item, itemId }) {
                      : null
                }
 
-               {/* Display menu item label */}
+               {/* Render the label of the menu item */}
                <p className="text-lg leading-none text-slate-100 hidden md:flex">{item.label}</p>
 
             </a>
 
+            {/* Render arrow indicator if this item has children */}
             {
                // Check if there are children
                item && item.children ?
@@ -100,6 +108,7 @@ export default function MenuItem({ item, itemId }) {
                   : null
             }
 
+            {/* Render visibility toggle if the item has a visibility property */}
             {
                // Check if there is a visibility key
                item && (item.visible === false || item.visible === true) ?
@@ -109,8 +118,8 @@ export default function MenuItem({ item, itemId }) {
 
                      {
                         state.scrollIndicator ?
-                           <SlArrowLeft className="font-bold text-md text-slate-100" /> // Show upward arrow if children are displayed
-                           : <SlArrowRight className="font-bold text-md text-slate-100" /> // Show downward arrow if children are hidden
+                           <SlArrowLeft className="font-bold text-md text-slate-100" /> // Show left arrow if scroll indicator is active
+                           : <SlArrowRight className="font-bold text-md text-slate-100" /> // Show right arrow if scroll indicator is inactive
 
                      }
 
