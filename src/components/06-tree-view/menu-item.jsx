@@ -7,7 +7,7 @@ import { useStore } from '../../store';
 import MenuList from "./menu-list";
 
 // Import icons for arrow indicators from 'react-icons'
-import { SlArrowDown, SlArrowUp, SlArrowRight, SlArrowLeft} from "react-icons/sl";
+import { SlArrowDown, SlArrowUp, SlArrowRight, SlArrowLeft } from "react-icons/sl";
 
 /**
  * MenuItem component represents an individual menu item and can contain nested menu items.
@@ -52,14 +52,23 @@ export default function MenuItem({ item, itemId }) {
       <li className="md:ml-4">
 
          {/* Render the link for the menu item with styling and conditional classes based on children visibility */}
-         <div className={`flex justify-center md:justify-start gap-2 items-center hover:bg-cyan-600 px-3 py-1 ${displayCurChildren[item.label] ? 'mb-1.5 md:bg-slate-600' : ''} ${state.scrollIndicator && itemId === 8 ? 'mb-1.5 md:bg-slate-600 rounded-e-lg' : 'rounded-lg'}`}>
+         <div className={`flex justify-center md:justify-start gap-2 items-center hover:bg-cyan-600 px-3 py-1 ${displayCurChildren[item.label] ? 'mb-1.5 md:bg-slate-600' : ''} ${state.scrollIndicator && itemId === 8 ? 'mb-1.5 bg-slate-600 rounded-e-lg' : 'rounded-lg'}`}>
 
             <a href={item.to}
                className={`flex justify-center md:justify-start gap-2 items-center`}
             >
 
                {
-                  item && item.number ?
+                  item && item.number && itemId !== 8 ?
+
+                     // Display item number if available
+                     <span className="font-bold text-2xl text-slate-100">{item.number}</span>
+
+                     : null
+               }
+
+               {
+                  item && item.number && itemId === 8 ?
 
                      // Display item number if available
                      <span onClick={handleToogleVisibility} className="font-bold text-2xl text-slate-100">{item.number}</span>

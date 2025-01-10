@@ -33,12 +33,12 @@ function App() {
 
   };
 
-  useEffect(()=>{
+  useEffect(() => {
 
     setScrollIndicatorOn(state.scrollIndicator)
 
   }, [state.scrollIndicator])
-  
+
 
   return (
     <>
@@ -46,21 +46,25 @@ function App() {
       {/* SideBar Section */}
       <section>
 
-        {/* SideBar - initially hidden off-screen on smaller screens */}
-        <div className={`fixed top-0 left-0 z-30 h-screen transition-all -translate-x-full sm:translate-x-0 w-20 md:w-56 bg-slate-500 ${sideBarOn ? 'opacity-80 translate-x-0' : ''}`}>
+        <div className={`relative z-30 ${sideBarOn ? 'opacity-80' : ''}`}>
 
-          {/* Tree View Component */}
-          <TreeView
-            sideMenu={sideMenu} // passing the sideMenu data as props
-          />
+          {/* SideBar - initially hidden off-screen on smaller screens */}
+          <div className={`fixed top-0 left-0 z-30 h-screen transition-all -translate-x-full sm:translate-x-0 w-20 md:w-56 bg-slate-500 ${sideBarOn ? 'translate-x-0' : ''}`}>
 
-        </div>
+            {/* Tree View Component */}
+            <TreeView
+              sideMenu={sideMenu} // passing the sideMenu data as props
+            />
 
-        {/* Scroll Indicator - initially hidden off-screen */}
-        <div className={`fixed top-0 left-0 z-40 h-screen transition-all ${scrollIndicatorOn ? 'translate-x-2 ' : '-translate-x-full'}`}>
+          </div>
 
-          {/* Tree View Component */}
-          <ScrollIndicator />
+          {/* Scroll Indicator - initially hidden off-screen */}
+          <div className={`fixed top-0 z-40 h-screen transition-all ${scrollIndicatorOn && sideBarOn ? 'left-1 sm:translate-x-1 md:translate-x-2' : '-translate-x-full'} ${scrollIndicatorOn ? 'left-0 sm:translate-x-1 md:translate-x-2' : '-translate-x-full'}`}>
+
+            {/* Tree View Component */}
+            <ScrollIndicator />
+
+          </div>
 
         </div>
 

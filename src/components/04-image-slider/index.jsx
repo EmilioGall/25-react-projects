@@ -128,7 +128,7 @@ export default function ImageSlider({ url, page, limit }) {
    return (
 
       // Main section of the image slider component
-      <section id="image-slider" className="relative h-screen w-full flex flex-col justify-center items-center gap-5 font-mono bg-blue-300">
+      <section id="image-slider" className="relative h-screen w-full z-10 flex flex-col justify-center items-center gap-5 font-mono bg-blue-300">
 
          {/* Image Slider component Title */}
          <h2 className="relative text-4xl text-center font-bold">Image Slider</h2>
