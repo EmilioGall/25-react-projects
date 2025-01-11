@@ -65,6 +65,12 @@ const sideMenu = [
       visible: false,
    },
 
+   {
+      number: '10',
+      label: 'Custom Tabs',
+      to: '#custom-tabs'
+   },
+
 ];
 
 export default sideMenu;
