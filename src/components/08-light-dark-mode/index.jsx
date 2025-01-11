@@ -20,7 +20,7 @@ export default function LightDarkMode() {
       // Main section of the Light-Dark Mode component
       <section id="light-dark-mode" className={`h-screen w-full flex flex-col justify-center items-center gap-5 py-5 font-mono ${theme === 'dark' ? 'bg-slate-700' : 'bg-slate-300'}`}>
 
-         {/* QR Code Generator component Title */}
+         {/* Light/Dark Mode component Title */}
          <h2 className={`text-4xl text-center ${theme === 'dark' ? 'text-slate-300' : 'text-slate-800'} font-bold`}>Light/Dark Mode</h2>
 
          {/* Container for user interaction, allows them to switch themes */}
@@ -40,6 +40,6 @@ export default function LightDarkMode() {
 
       </section>
 
-   )
+   );
 
 };

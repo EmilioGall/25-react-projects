@@ -13,6 +13,7 @@ import { RxHamburgerMenu } from "react-icons/rx"; // Import hamburger menu icon 
 import QrCodeGenerator from './components/07-qr-code-generator/index';
 import LightDarkMode from './components/08-light-dark-mode/index';
 import ScrollIndicator from './components/09-scroll-indicator/index';
+import CustomTabs from './components/10-custom-tabs';
 
 // Define the main App component
 function App() {
@@ -109,6 +110,9 @@ function App() {
 
         {/* Light-Dark Mode Component */}
         <LightDarkMode />
+
+        {/* Custom Tabs Component */}
+        <CustomTabs />
 
       </section>
       {/* Components Section */}
