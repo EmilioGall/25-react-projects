@@ -2,7 +2,7 @@ import Tabs from "./tabs";
 
 function TextContent() {
    
-   return <p className="text-orange-600">Lorem ipsum Custom dolor sit amet consectetur adipisicing elit. Veritatis voluptatum quos tempore illum consequuntur qui quaerat vel non delectus, adipisci labore nisi. Aliquid, reprehenderit neque! Consequuntur neque numquam autem quaerat?</p>
+   return <p className="text-orange-800">"Lorem ipsum TextComponent" dolor sit amet consectetur adipisicing elit. Veritatis voluptatum quos tempore illum consequuntur qui quaerat vel non delectus, adipisci labore nisi. Aliquid, reprehenderit neque! Consequuntur neque numquam autem quaerat?</p>
 };
 
 export default function CustomTabs() {
@@ -11,12 +11,12 @@ export default function CustomTabs() {
 
       {
          label: 'Tab 1',
-         content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt voluptates vitae nostrum veritatis. Neque, quam temporibus voluptatibus laudantium fugiat ut excepturi autem consectetur perspiciatis quae fuga nesciunt, fugit non magni.'
+         content: '"Lorem ipsum" dolor sit amet consectetur, adipisicing elit. Incidunt voluptates vitae nostrum veritatis. Neque, quam temporibus voluptatibus laudantium fugiat ut excepturi autem consectetur perspiciatis quae fuga nesciunt, fugit non magni.'
       },
 
       {
          label: 'Tab 2',
-         content: 'Lorem ipsum 2 dolor sit amet consectetur adipisicing elit. Iste voluptatem quis quia, repellat voluptas accusamus iure eos tempora, sequi nam, quod aperiam illo sed nobis officia quae. Repellat, quis optio.'
+         content: '"Lorem ipsum 2" dolor sit amet consectetur adipisicing elit. Iste voluptatem quis quia, repellat voluptas accusamus iure eos tempora, sequi nam, quod aperiam illo sed nobis officia quae. Repellat, quis optio.'
       },
 
       {
@@ -24,6 +24,10 @@ export default function CustomTabs() {
          content: <TextContent />,
       },
 
+      {
+         label: 'Tab 4',
+         content: '"Lorem ipsum 4" dolor sit amet consectetur adipisicing elit. Iste voluptatem quis quia, repellat voluptas accusamus iure eos tempora, sequi nam, quod aperiam illo sed nobis officia quae. Repellat, quis optio.'
+      },
    ];
 
    function handleChange(curTabIndex) {
