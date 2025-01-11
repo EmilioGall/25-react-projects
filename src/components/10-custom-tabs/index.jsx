@@ -1,12 +1,18 @@
+// Importing the Tabs component from the tabs file
 import Tabs from "./tabs";
 
+// This component renders some placeholder text content
 function TextContent() {
-   
+
+   // Returns a paragraph with some example text
    return <p className="text-orange-800">"Lorem ipsum TextComponent" dolor sit amet consectetur adipisicing elit. Veritatis voluptatum quos tempore illum consequuntur qui quaerat vel non delectus, adipisci labore nisi. Aliquid, reprehenderit neque! Consequuntur neque numquam autem quaerat?</p>
+
 };
 
+// Main CustomTabs component to manage the tabbed layout
 export default function CustomTabs() {
 
+   // Define the tabs and their content
    const tabs = [
 
       {
@@ -21,7 +27,7 @@ export default function CustomTabs() {
 
       {
          label: 'Tab 3',
-         content: <TextContent />,
+         content: <TextContent />, // Using the TextContent component for tab 3's content
       },
 
       {
@@ -30,25 +36,29 @@ export default function CustomTabs() {
       },
    ];
 
+   // Handle tab change events
    function handleChange(curTabIndex) {
 
       console.log('curTabIndex', curTabIndex);
-      
 
    };
 
    return (
 
-      // Main section of the Light-Dark Mode component
+      // Main section of the Custom Tabs component
       <section id="custom-tabs" className={`h-screen w-full flex flex-col justify-center items-center gap-5 py-5 font-mono bg-orange-800`}>
 
          {/* Custom Tabs component Title */}
          <h2 className={`text-4xl text-center text-slate-300 font-bold`}>Custom Tabs</h2>
 
-         {/* Container tabs block */}
+         {/* Container for the tab component */}
          <div className="flex justify-center items-center">
 
-            <Tabs tabsContent={tabs} onChange={handleChange} />
+            {/* Rendering the Tabs component, passing in [tabsContent] and change handler */}
+            <Tabs
+               tabsContent={tabs}
+               onChange={handleChange}
+            />
 
          </div>
 
