@@ -14,6 +14,7 @@ import QrCodeGenerator from './components/07-qr-code-generator/index';
 import LightDarkMode from './components/08-light-dark-mode/index';
 import ScrollIndicator from './components/09-scroll-indicator/index';
 import CustomTabs from './components/10-custom-tabs';
+import CustomModals from './components/11-custom-modals';
 
 // Define the main App component
 function App() {
@@ -113,6 +114,9 @@ function App() {
 
         {/* Custom Tabs Component */}
         <CustomTabs />
+
+        {/* Custom Modals Component */}
+        <CustomModals />
 
       </section>
       {/* Components Section */}

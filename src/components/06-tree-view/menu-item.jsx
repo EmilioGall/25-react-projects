@@ -69,7 +69,7 @@ export default function MenuItem({ item, itemId }) {
                   item && item.number && itemId !== 8 ?
 
                      // Display item number if available
-                     <span className="font-bold text-2xl text-slate-100">{item.number}</span>
+                     <span className="font-bold text-xl text-slate-100">{item.number}</span>
 
                      : null
                }
@@ -84,7 +84,7 @@ export default function MenuItem({ item, itemId }) {
                }
 
                {/* Render the label of the menu item */}
-               <p className="text-lg leading-none text-slate-100 hidden md:flex">{item.label}</p>
+               <p className="text-md leading-none text-slate-100 hidden md:flex">{item.label}</p>
 
             </a>
 
