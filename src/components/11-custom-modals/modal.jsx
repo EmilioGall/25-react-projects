@@ -1,7 +1,7 @@
 // Import icon from 'react-icons'
 import { GoX } from "react-icons/go";
 
-export default function Modal({ id, header, body, footer }) {
+export default function Modal({ id, header, body, footer, clickX }) {
 
 
    return (
@@ -17,7 +17,7 @@ export default function Modal({ id, header, body, footer }) {
                }
             </h3>
 
-            <span><GoX /></span>
+            <span onClick={clickX}><GoX /></span>
 
          </header>
 
@@ -27,7 +27,7 @@ export default function Modal({ id, header, body, footer }) {
                {
                   body ?
                      body
-                     : 'Default body of the modal'
+                     : 'Default body of the selected modal'
                }
             </p>
 

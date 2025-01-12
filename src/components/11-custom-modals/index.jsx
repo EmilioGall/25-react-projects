@@ -14,11 +14,38 @@ export default function CustomModals() {
 
             setShowDefaultModal(!showDefaultModal);
 
+            setShowCustomModal(false);
+
             break;
 
          case 'custom':
 
             setShowCustomModal(!showCustomModal);
+
+            setShowDefaultModal(false);
+
+            break;
+
+         default:
+
+            break;
+      };
+
+   };
+
+   function closeModal(type) {
+
+      switch (type) {
+
+         case 'default':
+
+            setShowDefaultModal(false);
+
+            break;
+
+         case 'custom':
+
+            setShowCustomModal(false);
 
             break;
 
@@ -60,9 +87,9 @@ export default function CustomModals() {
 
             <div className="flex justify-center items-center gap-3 text-slate-300">
 
-               {showDefaultModal && <Modal />}
+               {showDefaultModal && <Modal clickX={()=> closeModal('default')} />}
 
-               {showCustomModal && <Modal />}
+               {showCustomModal && <Modal clickX={()=> closeModal('custom')} header={'Custom Header'} body={'Default body of the selected modal'} footer={'Custom Footer'}/>}
 
             </div>
 
