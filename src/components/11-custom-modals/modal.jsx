@@ -5,9 +5,12 @@ export default function Modal({ id, header, body, footer, clickX }) {
 
 
    return (
-      <div id={id || 'Modal'}>
+      <div
+         id={id || 'Modal'}
+         className={`relative border rounded-lg py-10 px-20 `}
+      >
 
-         <header>
+         <header className={`text-center text-xl font-bold`}>
 
             <h3>
                {
@@ -17,11 +20,15 @@ export default function Modal({ id, header, body, footer, clickX }) {
                }
             </h3>
 
-            <span onClick={clickX}><GoX /></span>
+            <span
+               className={`absolute right-2 top-2 cursor-pointer`}
+               onClick={clickX}>
+               <GoX />
+            </span>
 
          </header>
 
-         <main>
+         <main className={`text-center text-md`}>
 
             <p>
                {
@@ -33,7 +40,7 @@ export default function Modal({ id, header, body, footer, clickX }) {
 
          </main>
 
-         <footer>
+         <footer className={`text-center text-xl font-bold`}>
 
             <h3>
                {

@@ -59,7 +59,7 @@ export default function CustomModals() {
    return (
 
       // Main section of the Custom Modals component
-      <section id="custom-modals" className={`h-screen w-full flex flex-col justify-center items-center gap-5 py-5 font-mono bg-green-500`}>
+      <section id="custom-modals" className={`relative h-screen w-full flex flex-col justify-center items-center gap-5 py-5 font-mono bg-green-500`}>
 
          {/* Custom Modals component Title */}
          <h2 className={`text-4xl text-center text-slate-300 font-bold`}>Custom Modals</h2>
@@ -85,15 +85,20 @@ export default function CustomModals() {
 
             </div>
 
-            <div className="flex justify-center items-center gap-3 text-slate-300">
-
-               {showDefaultModal && <Modal clickX={()=> closeModal('default')} />}
-
-               {showCustomModal && <Modal clickX={()=> closeModal('custom')} header={'Custom Header'} body={'Default body of the selected modal'} footer={'Custom Footer'}/>}
-
-            </div>
-
          </div>
+
+         {
+            showDefaultModal || showCustomModal ?
+               <div className="absolute h-full w-full flex flex-col justify-center items-center text-slate-300 bg-slate-800 opacity-80">
+
+                  {showDefaultModal && <Modal clickX={() => closeModal('default')} />}
+
+                  {showCustomModal && <Modal clickX={() => closeModal('custom')} header={'Custom Header'} body={'Default body of the selected modal'} footer={'Custom Footer'} />}
+
+               </div>
+
+               : null
+         }
 
       </section>
 
