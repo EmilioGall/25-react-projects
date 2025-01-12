@@ -77,6 +77,12 @@ const sideMenu = [
       to: '#custom-modals'
    },
 
+   {
+      number: '12',
+      label: 'Github Profile Finder',
+      to: '#github-profile-finder'
+   },
+
 ];
 
 export default sideMenu;
