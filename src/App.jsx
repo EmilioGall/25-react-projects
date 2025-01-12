@@ -15,6 +15,7 @@ import LightDarkMode from './components/08-light-dark-mode/index';
 import ScrollIndicator from './components/09-scroll-indicator/index';
 import CustomTabs from './components/10-custom-tabs';
 import CustomModals from './components/11-custom-modals';
+import GithubProfileFinder from './components/12-github-profile-finder';
 
 // Define the main App component
 function App() {
@@ -117,6 +118,9 @@ function App() {
 
         {/* Custom Modals Component */}
         <CustomModals />
+
+        {/* GitHub Profile Finder Component */}
+        <GithubProfileFinder />
 
       </section>
       {/* Components Section */}
