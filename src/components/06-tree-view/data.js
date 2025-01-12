@@ -71,6 +71,12 @@ const sideMenu = [
       to: '#custom-tabs'
    },
 
+   {
+      number: '11',
+      label: 'Custom Modals',
+      to: '#custom-modals'
+   },
+
 ];
 
 export default sideMenu;
