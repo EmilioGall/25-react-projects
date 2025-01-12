@@ -73,7 +73,7 @@ export default function Accordion() {
    return (
 
       // Main section for the accordion component
-      <section id="accordion" className="wrapper flex flex-col justify-center items-center gap-5 h-screen w-full font-mono bg-lime-200">
+      <section id="accordion" className="wrapper flex flex-col justify-center items-center gap-5 min-h-screen w-full py-5 font-mono bg-lime-200">
 
          {/* Accordion component Title */}
          <h2 className="text-4xl text-center font-bold">Accordion</h2>

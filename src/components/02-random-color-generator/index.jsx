@@ -160,7 +160,7 @@ export default function ColorGenerator() {
    return (
 
       // Main section for the color generator component
-      <section id="random-color-generetor" className="h-screen w-full flex flex-col justify-center items-center gap-2 font-mono p-10" style={{ background: color }}>
+      <section id="random-color-generetor" className="min-h-screen w-full flex flex-col justify-center items-center gap-2 font-mono p-10" style={{ background: color }}>
 
          {/* Button container to generate colors */}
          <div className="flex justify-center gap-5 mb-3">
@@ -204,9 +204,9 @@ export default function ColorGenerator() {
          {/* Display the current color type and the generated color value */}
          <div className="flex flex-col items-center gap-3">
 
-            <h3 className="text-6xl">{colorType === 'hex' ? 'HEX Color' : 'RGBa Color'}</h3>
+            <h3 className="text-2xl md:text-4xl font-bold">{colorType === 'hex' ? 'HEX Color' : 'RGBa Color'}</h3>
 
-            <h2 className="text-4xl font-bold">{color}</h2>
+            <h2 className="text-xl md:text-2xl">{color}</h2>
 
          </div>
 
