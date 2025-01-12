@@ -9,34 +9,38 @@ export default function GithubProfileFinder() {
 
    async function fetchGithubUsersData() {
 
-      try {
+      if (username !== '') {
+         
+         try {
 
-         setLoading(true);
-
-         const response = await fetch(`https://api.github.com/users/${username}`);
-
-         const data = await response.json();
-
-         console.log('data', data);
-
-         if (data) {
-
-            setUserData(data);
-
+            setLoading(true);
+   
+            const response = await fetch(`https://api.github.com/users/${username}`);
+   
+            const data = await response.json();
+   
+            console.log('data', data);
+   
+            if (data) {
+   
+               setUserData(data);
+   
+            };
+   
+         } catch (error) {
+   
+            console.log(error);
+   
+   
+         } finally {
+   
+            setLoading(false);
+   
          };
-
-      } catch (error) {
-
-         console.log(error);
-
-
-      } finally {
-
-         setLoading(false);
 
       };
 
-   }
+   };
 
    function handleSearch() {
 
@@ -53,18 +57,24 @@ export default function GithubProfileFinder() {
          <h2 className={`text-4xl text-center text-slate-300 font-bold`}>Github Profile Finder</h2>
 
          {/* Container for the Github Profile Finder component */}
-         <div className="flex flex-col justify-center items-center">
+         <div className="flex flex-col justify-center items-center gap-2">
 
-            <div>
+            <div className="flex justify-center items-center gap-2">
 
                <input
                   id="github-username-input"
                   type="text"
-                  name=""
+                  name="github-username-input"
                   placeholder="Github Username"
-                  onChange={(event) => setUsername(event.target.value)} />
+                  onChange={(event) => setUsername(event.target.value)}
+                  className={`rounded px-2`}
+               />
 
-               <button onClick={handleSearch}>Search</button>
+               <button
+                  onClick={handleSearch}
+                  className={`rounded border border-slate-300 text-md text-center text-slate-300 hover:bg-slate-300 hover:text-sky-800 font-bold px-3`}>
+                  Search
+               </button>
 
             </div>
 
@@ -82,7 +92,7 @@ export default function GithubProfileFinder() {
             }
 
             {
-               userData ?
+               userData && username !== '' && !loading ?
 
                   <UserCard user={userData} />
 
