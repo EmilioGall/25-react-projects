@@ -1,10 +1,76 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function SearchAutocomplete() {
 
-   const [username, setUsername] = useState('');
-   const [userData, setUserData] = useState(null);
+   const [searchParam, setSearchParam] = useState('');
+   const [usersData, setUsersData] = useState(null);
    const [loading, setLoading] = useState(false);
+   const [filteredUsersData, setFilteredUsersData] = useState([]);
+
+   async function fetchUsersData() {
+
+      try {
+
+         setLoading(true);
+
+         const response = await fetch(`https://dummyjson.com/users`);
+
+         const data = await response.json();
+
+         console.log('data.users', data.users);
+
+         if (data && data.users && data.users.length > 0) {
+
+            setUsersData(data.users.map((userItem) => userItem.firstName));
+
+         };
+
+      } catch (error) {
+
+         console.log(error);
+
+
+      } finally {
+
+         setLoading(false);
+
+      };
+
+   };
+
+   function handleTextInput(event) {
+
+      const query = event.target.value.toLowerCase();
+
+      console.log('query =', query);
+
+      setSearchParam(query);
+
+      if (query.length > 1) {
+
+         console.log('inside');
+
+
+         const filteredData =
+            usersData && usersData.length ?
+               usersData.filter(username => username.toLowerCase().indexOf(query)> -1)
+               : [];
+
+         setFilteredUsersData(filteredData);
+
+      };
+
+   };
+
+   useEffect(() => {
+
+      fetchUsersData();
+
+   }, []);
+
+   console.log('usersData =', usersData);
+
+   console.log('filteredUsersData =', filteredUsersData);
 
    return (
 
@@ -24,7 +90,7 @@ export default function SearchAutocomplete() {
                   type="text"
                   name="github-username-input"
                   placeholder="Search user here..."
-                  onChange={''}
+                  onChange={handleTextInput}
                   className={`rounded px-2`}
                />
 
@@ -50,9 +116,9 @@ export default function SearchAutocomplete() {
             }
 
             {
-               userData && username !== '' && !loading ?
+               usersData && !loading ?
 
-                  <UserCard user={userData} />
+                  ''
 
                   : null
             }
