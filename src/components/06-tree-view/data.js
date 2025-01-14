@@ -89,6 +89,12 @@ const sideMenu = [
       to: '#search-autocomplete-api'
    },
 
+   {
+      number: '14',
+      label: 'Tic-tac-toe',
+      to: '#tic-tac-toe'
+   },
+
 ];
 
 export default sideMenu;
