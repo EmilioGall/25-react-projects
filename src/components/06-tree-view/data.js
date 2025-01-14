@@ -83,6 +83,12 @@ const sideMenu = [
       to: '#github-profile-finder'
    },
 
+   {
+      number: '13',
+      label: 'Search Autocomplete',
+      to: '#search-autocomplete-api'
+   },
+
 ];
 
 export default sideMenu;
