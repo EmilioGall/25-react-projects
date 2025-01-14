@@ -2,6 +2,15 @@ import CustomGrid from "./CustomGrid";
 
 export default function TicTacToe() {
 
+   function handleSquareSelection(rowIndex, colIndex) {
+
+      console.log('Attivata');
+
+      console.log(`Attivata casella x: ${colIndex} y: ${rowIndex}`);
+      
+
+   };
+
    return (
 
       // Main container for the SearchAutocomplete component
@@ -11,9 +20,9 @@ export default function TicTacToe() {
          <h2 className={`text-4xl text-center text-purple-700 font-bold`}>Tic-Tac-Toe</h2>
 
          {/* Input container for the search functionality */}
-         <div className="flex flex-col justify-center items-center gap-2">
+         <div className="flex justify-center items-center gap-2 mt-4">
 
-            <CustomGrid rows={3} columns={3} />
+            <CustomGrid rows={3} columns={3} handleSquareSelection={handleSquareSelection} />
 
          </div>
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function CustomGrid({ rows, columns }) {
+export default function CustomGrid({ rows, columns, handleSquareSelection }) {
 
    // Create an array of arrays to represent the grid structure
    const gridData = Array.from(
@@ -21,24 +21,28 @@ export default function CustomGrid({ rows, columns }) {
 
    return (
 
-      <div className={`flex gap-2 border p-2`}>
+      <div className={`flex gap-2 border rounded-lg p-4`}>
 
          {
-         gridData.map((row, rowIndex) => (
-            <div className="grid-row" key={rowIndex}>
+            gridData.map((row, rowIndex) => (
+               <div className={`flex flex-col gap-2`} key={rowIndex}>
 
-               {
-               row.map((item, colIndex) => (
-                  <div className="grid-item" key={colIndex}>
+                  {
+                     row.map((item, colIndex) => (
+                        <div className={`aspect-square border border-black rounded-lg flex items-center text-center p-2`} key={colIndex}>
 
-                     {item}
+                           <button onClick={() => handleSquareSelection(rowIndex, colIndex)}>
 
-                  </div>
-               ))
-               }
+                              {item}
 
-            </div>
-         ))
+                           </button>
+
+                        </div>
+                     ))
+                  }
+
+               </div>
+            ))
          }
 
       </div>
