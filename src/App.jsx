@@ -17,6 +17,7 @@ import CustomTabs from './components/10-custom-tabs';
 import CustomModals from './components/11-custom-modals';
 import GithubProfileFinder from './components/12-github-profile-finder';
 import SearchAutocomplete from './components/13-search-autocomplete-api';
+import TicTacToe from './components/14-tic-tac-toe';
 
 // Define the main App component
 function App() {
@@ -125,6 +126,9 @@ function App() {
 
         {/* Search Autocomplete with API Component */}
         <SearchAutocomplete />
+
+        {/* Tic-tac-toe Component */}
+        <TicTacToe />
 
       </section>
       {/* Components Section */}
