@@ -127,7 +127,7 @@ export default function SearchAutocomplete() {
                <div className="flex gap-2">
 
                   <input
-                     id="github-username-input"
+                     id="autocomplete-username-input"
                      type="text"
                      name="github-username-input"
                      value={searchParam}
