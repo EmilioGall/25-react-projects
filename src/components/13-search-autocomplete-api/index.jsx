@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Suggestions from "./Suggestion";
 
 export default function SearchAutocomplete() {
 
@@ -53,10 +54,14 @@ export default function SearchAutocomplete() {
 
          const filteredData =
             usersData && usersData.length ?
-               usersData.filter(username => username.toLowerCase().indexOf(query)> -1)
+               usersData.filter(username => username.toLowerCase().indexOf(query) > -1)
                : [];
 
          setFilteredUsersData(filteredData);
+
+      } else {
+
+         setFilteredUsersData([]);
 
       };
 
@@ -83,45 +88,60 @@ export default function SearchAutocomplete() {
          {/* Container for the Github Profile Finder component */}
          <div className="flex flex-col justify-center items-center gap-2">
 
-            <div className="flex justify-center items-center gap-2">
+            <div>
 
-               <input
-                  id="github-username-input"
-                  type="text"
-                  name="github-username-input"
-                  placeholder="Search user here..."
-                  onChange={handleTextInput}
-                  className={`rounded px-2`}
-               />
+               <div className="flex gap-2">
 
-               <button
-                  onClick={''}
-                  className={`rounded border border-slate-300 text-md text-center text-slate-300 hover:bg-slate-300 hover:text-sky-800 font-bold px-3`}>
-                  Search
-               </button>
+                  <input
+                     id="github-username-input"
+                     type="text"
+                     name="github-username-input"
+                     placeholder="Search user here..."
+                     onChange={handleTextInput}
+                     className={`rounded px-2`}
+                  />
+
+                  <button
+                     // onClick={''}
+                     className={`rounded border border-slate-300 text-md text-center text-slate-300 hover:bg-slate-300 hover:text-sky-800 font-bold px-3`}>
+                     Search
+                  </button>
+
+               </div>
+
+               {
+                  filteredUsersData ?
+
+                     <div className="relative w-full mt-1">
+
+                        <Suggestions data={filteredUsersData} />
+
+                     </div>
+
+                     : null
+
+               }
 
             </div>
 
-            {
-               loading ?
+            <div>
 
-                  <div>
+               {
+                  loading ?
 
-                     <p>Loading data. Please wait...</p>
+                     <div>
 
-                  </div>
+                        <p>Loading data. Please wait...</p>
 
-                  : null
+                     </div>
 
-            }
+                     : null
 
-            {
-               usersData && !loading ?
+               }
 
-                  ''
+            </div>
 
-                  : null
-            }
+
 
 
          </div>
