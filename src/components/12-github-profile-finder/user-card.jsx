@@ -57,7 +57,9 @@ export default function UserCard({ user }) {
          <hr />
 
          <a className={`flex justify-center items-center gap-2 text-slate-800 hover:text-sky-800 cursor-pointer hover:text py-2`} href={html_url}>
+
             Github Page <span><FaExternalLinkAlt /></span>
+            
          </a>
 
       </div>
