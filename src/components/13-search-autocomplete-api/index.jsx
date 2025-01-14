@@ -67,6 +67,16 @@ export default function SearchAutocomplete() {
 
    };
 
+   function handleSuggestionClick(event) {
+
+      console.log(event.target.innerText);
+
+      setSearchParam(event.target.innerText);
+
+      setFilteredUsersData([]);
+      
+   };
+
    useEffect(() => {
 
       fetchUsersData();
@@ -96,6 +106,7 @@ export default function SearchAutocomplete() {
                      id="github-username-input"
                      type="text"
                      name="github-username-input"
+                     value={searchParam}
                      placeholder="Search user here..."
                      onChange={handleTextInput}
                      className={`rounded px-2`}
@@ -114,7 +125,7 @@ export default function SearchAutocomplete() {
 
                      <div className="relative w-full mt-1">
 
-                        <Suggestions data={filteredUsersData} />
+                        <Suggestions data={filteredUsersData} handleSuggestionClick={handleSuggestionClick} />
 
                      </div>
 
