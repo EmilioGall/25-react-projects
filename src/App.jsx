@@ -16,6 +16,7 @@ import ScrollIndicator from './components/09-scroll-indicator/index';
 import CustomTabs from './components/10-custom-tabs';
 import CustomModals from './components/11-custom-modals';
 import GithubProfileFinder from './components/12-github-profile-finder';
+import SearchAutocomplete from './components/13-search-autocomplete-api';
 
 // Define the main App component
 function App() {
@@ -121,6 +122,9 @@ function App() {
 
         {/* GitHub Profile Finder Component */}
         <GithubProfileFinder />
+
+        {/* Search Autocomplete with API Component */}
+        <SearchAutocomplete />
 
       </section>
       {/* Components Section */}
