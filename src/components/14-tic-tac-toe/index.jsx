@@ -38,7 +38,7 @@ export default function TicTacToe() {
    const [player, setPlayer] = useState('x');
    // State to track the grid state
    const [gridSquares, setGridSquares] = useState(gridData);
-
+   // State to track the winning pattern state
    const [winningPattern, setWinningPattern] = useState(null);
    // State to track the winner ('x' or 'o')
    const [winner, setWinner] = useState(null);
@@ -82,6 +82,7 @@ export default function TicTacToe() {
          // If all three positions are filled with the same marker, return the winner
          if (first && first === second && first === third) {
 
+            // Update the winning pattern state
             setWinningPattern(pattern);
 
             // Return the winner ('x' or 'o')
@@ -166,10 +167,13 @@ export default function TicTacToe() {
 
    return (
 
+      // Main container for the TicTacToe component
       <section id="tic-tac-toe" className={`relative min-h-screen w-full py-20 md:py-48 font-mono bg-violet-400`}>
 
-         <h2 className={`text-4xl text-center text-purple-700 font-bold`}>Tic-Tac-Toe</h2>
+         {/* Title for the Tic-Tac-Toe component */}
+         <h2 className={`text-4xl text-center text-purple-700 font-bold`}>Tic Tac Toe</h2>
 
+         {/* Game container  */}
          <div className="flex flex-col justify-center items-center gap-2 mt-4">
 
             {/* Button to reset the game */}
