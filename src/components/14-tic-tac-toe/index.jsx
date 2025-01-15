@@ -173,18 +173,24 @@ export default function TicTacToe() {
          <div className="flex flex-col justify-center items-center gap-2 mt-4">
 
             {/* Button to reset the game */}
-            <button className={`border px-2`} onClick={clearBoard}>
+            <button className={`border border-purple-700 text-purple-700 rounded px-2 hover:bg-purple-700 hover:text-slate-300`} onClick={clearBoard}>
                Reset
             </button>
 
             {/* Display whose turn it is based on the current player */}
             {
                player === 'x' ?
-                  <div className={`flex items-center gap-2 text-center text-lg font-semibold`}>
-                     Player <RxCross2 /> turn
+                  <div className={`flex items-center gap-0.5 text-center text-lg text-slate-300`}>
+                     Player <RxCross2
+                        size={20}
+                        className={`text-purple-700`}
+                     /> turn
                   </div> :
-                  <div className={`flex items-center gap-2 text-center text-lg font-semibold`}>
-                     Player <FaRegCircle /> turn
+                  <div className={`flex items-center gap-1 text-center text-lg text-slate-300`}>
+                     Player <FaRegCircle
+                        size={15}
+                        className={`text-purple-700`}
+                     /> turn
                   </div>
             }
 
@@ -192,11 +198,11 @@ export default function TicTacToe() {
             <CustomGrid
                data={gridSquares.map((row, rowIndex) =>
                   row.map((cell, colIndex) => {
-                     let color = 'blue'; // Default cell color
+                     let winnerCell = false; // Default cell value
                      if (winningPattern && winningPattern.some(pos => pos.row === rowIndex && pos.col === colIndex)) {
-                        color = 'red'; // Color for winning pattern cells
+                        winnerCell = true; // Winning pattern cell value
                      }
-                     return { cell, color }; // Include color in return object 
+                     return { cell, winnerCell }; // Include winnerCell value in return object 
                   })
                )}
                handleSquareSelection={handleSquareSelection} // Function for handling player moves
@@ -205,7 +211,7 @@ export default function TicTacToe() {
             {/* Display the winner if there is one */}
             {
                winner &&
-               <div className={`text-center text-2xl font-semibold`}>
+               <div className={`text-center text-2xl text-slate-300 font-semibold`}>
 
                   Winner: {winner === 'x' ? 'X' : 'O'}
 
@@ -215,7 +221,7 @@ export default function TicTacToe() {
             {/* Display a message if the game ends in a draw */}
             {
                draw &&
-               <div className={`text-center text-2xl font-semibold`}>
+               <div className={`text-center text-2xl text-slate-300 font-semibold`}>
 
                   It's a draw!
 
