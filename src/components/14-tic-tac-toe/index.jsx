@@ -38,6 +38,8 @@ export default function TicTacToe() {
    const [player, setPlayer] = useState('x');
    // State to track the grid state
    const [gridSquares, setGridSquares] = useState(gridData);
+
+   const [winningPattern, setWinningPattern] = useState(null);
    // State to track the winner ('x' or 'o')
    const [winner, setWinner] = useState(null);
    // State to track if the game ends in a draw
@@ -79,6 +81,8 @@ export default function TicTacToe() {
 
          // If all three positions are filled with the same marker, return the winner
          if (first && first === second && first === third) {
+
+            setWinningPattern(pattern);
 
             // Return the winner ('x' or 'o')
             return first;
@@ -149,6 +153,9 @@ export default function TicTacToe() {
       // Reset winner state
       setWinner(null);
 
+      // Reset winning pattern state
+      setWinningPattern(null);
+
       // Reset draw state
       setDraw(false);
 
@@ -183,18 +190,26 @@ export default function TicTacToe() {
 
             {/* CustomGrid component to render the game board with current grid state */}
             <CustomGrid
-               data={gridSquares.map(row => row.map(cell => cell === 'x' ? <RxCross2 /> : cell === 'o' ? <FaRegCircle /> : null))}
+               data={gridSquares.map((row, rowIndex) =>
+                  row.map((cell, colIndex) => {
+                     let color = 'blue'; // Default cell color
+                     if (winningPattern && winningPattern.some(pos => pos.row === rowIndex && pos.col === colIndex)) {
+                        color = 'red'; // Color for winning pattern cells
+                     }
+                     return { cell, color }; // Include color in return object 
+                  })
+               )}
                handleSquareSelection={handleSquareSelection} // Function for handling player moves
             />
 
             {/* Display the winner if there is one */}
             {
                winner &&
-                  <div className={`text-center text-2xl font-semibold`}>
+               <div className={`text-center text-2xl font-semibold`}>
 
-                     Winner: {winner === 'x' ? 'X' : 'O'}
+                  Winner: {winner === 'x' ? 'X' : 'O'}
 
-                  </div>
+               </div>
             }
 
             {/* Display a message if the game ends in a draw */}
@@ -212,5 +227,5 @@ export default function TicTacToe() {
       </section>
 
    );
-   
+
 };

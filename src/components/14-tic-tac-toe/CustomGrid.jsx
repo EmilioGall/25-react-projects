@@ -1,7 +1,5 @@
 export default function CustomGrid({ data, handleSquareSelection }) {
 
-   // console.log('data =', data);
-
    return (
 
       <div className={`flex flex-col gap-2 border rounded-lg p-2 w-60 h-60`}>
@@ -14,13 +12,13 @@ export default function CustomGrid({ data, handleSquareSelection }) {
                      row.map((item, colIndex) => (
                         <button
                            id={`Square-col${colIndex + 1}-row${rowIndex + 1}`}
-                           className={`aspect-square h-max w-full border border-black rounded-lg flex justify-center items-center text-center p-2`}
+                           className={`aspect-square h-max w-full border border-black rounded-lg flex justify-center items-center text-center p-2 ${
+                              item.color === 'red' ? 'bg-red-500' : 'bg-white'
+                           }`} // Updated class for background color
                            key={colIndex}
                            onClick={() => handleSquareSelection(rowIndex, colIndex)}
                         >
-
-                           {item}
-
+                           {item.cell}
                         </button>
                      ))
                   }
