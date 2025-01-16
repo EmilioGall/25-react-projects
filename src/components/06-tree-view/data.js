@@ -95,6 +95,12 @@ const sideMenu = [
       to: '#tic-tac-toe'
    },
 
+   {
+      number: '15',
+      label: 'Feature Flag',
+      to: '#feature-flag'
+   },
+
 ];
 
 export default sideMenu;
