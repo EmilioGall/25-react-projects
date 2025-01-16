@@ -19,6 +19,8 @@ import GithubProfileFinder from './components/12-github-profile-finder';
 import SearchAutocomplete from './components/13-search-autocomplete-api';
 import TicTacToe from './components/14-tic-tac-toe';
 import FeatureFlag from './components/15-feature-flag';
+import FeatureFlagGlobalState from './components/15-feature-flag/context/index'
+
 
 // Define the main App component
 function App() {
@@ -132,7 +134,11 @@ function App() {
         <TicTacToe />
 
         {/* Feature Flag Component */}
-        <FeatureFlag />
+        <FeatureFlagGlobalState>
+
+          <FeatureFlag />
+
+        </FeatureFlagGlobalState>
 
       </section>
       {/* Components Section */}
