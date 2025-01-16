@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { FeatureFlagContext } from "./context";
 
 export default function FeatureFlag() {
 
    const [givenQuotes, setGivenQuotes] = useState([]);
 
    const [quotesToRender, setQuotesToRender] = useState([]);
+
+   const { enabledFlags } = useContext(FeatureFlagContext)
 
    async function fetchQuotes() {
 
@@ -30,11 +33,11 @@ export default function FeatureFlag() {
 
       if (givenQuotes) {
 
-         setQuotesToRender(givenQuotes.map((quoteItem, quoteItemIndex) => { 
+         setQuotesToRender(givenQuotes.map((quoteItem, quoteItemIndex) => {
 
             return {
 
-               key: `quote${quoteItemIndex+1}`,
+               key: `quote${quoteItemIndex + 1}`,
                content: quoteItem.quote,
                author: quoteItem.author
 
@@ -43,6 +46,12 @@ export default function FeatureFlag() {
          }))
 
       };
+
+   };
+
+   function checkEnabledFlags(getCurKey) {
+
+      return enabledFlags[getCurKey];
 
    };
 
@@ -72,9 +81,23 @@ export default function FeatureFlag() {
          <h2 className={`text-4xl text-center text-violet-500 font-bold`}>Feature Flag Implementation</h2>
 
          {/* Game container  */}
-         <div className="flex flex-col justify-center items-center gap-2 mt-4">
+         <ul className="flex flex-col justify-center items-center gap-2 mt-4">
 
-         </div>
+            {
+               quotesToRender.map((quoteItem, quoteItemIndex) =>
+                  checkEnabledFlags(quoteItem.key) ?
+                     <li key={quoteItemIndex}>
+
+                        <p>{quoteItem.content}</p>
+
+                        <span>{quoteItem.author}</span>
+
+                     </li>
+                     : null
+               )
+            }
+
+         </ul>
 
       </section>
 
