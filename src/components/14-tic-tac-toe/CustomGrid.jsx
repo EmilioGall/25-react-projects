@@ -6,6 +6,9 @@ import { RxCross2 } from "react-icons/rx";
 
 export default function CustomGrid({ data, handleSquareSelection }) {
 
+   console.log(data);
+   
+
    return (
 
       <div className={`flex flex-col gap-2 bg-purple-700 opacity-50 rounded-lg p-2 w-60 h-60`}>
@@ -18,7 +21,7 @@ export default function CustomGrid({ data, handleSquareSelection }) {
                      row.map((item, colIndex) => (
                         <button
                            id={`Square-col${colIndex + 1}-row${rowIndex + 1}`}
-                           className={`aspect-square h-max w-full  bg-violet-400 rounded-lg flex justify-center items-center text-center p-2 ${item.winnerCell ? 'bg-lime-500' : ''}`}
+                           className={`aspect-square h-max w-full rounded-lg flex justify-center items-center text-center p-2 ${item.winnerCell ? 'bg-lime-500' : 'bg-violet-400'}`}
                            key={colIndex}
                            onClick={() => handleSquareSelection(rowIndex, colIndex)}
                         >
