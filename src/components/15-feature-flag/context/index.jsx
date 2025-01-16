@@ -34,7 +34,7 @@ export default function FeatureFlagGlobalState({ children }) {
 
    }, [])
 
-   return <FeatureFlagContext.Provider value={{}}>
+   return <FeatureFlagContext.Provider value={{ enabledFlags }}>
 
       {children}
 

@@ -1,4 +1,67 @@
+import { useEffect, useState } from "react";
+
 export default function FeatureFlag() {
+
+   const [givenQuotes, setGivenQuotes] = useState([]);
+
+   const [quotesToRender, setQuotesToRender] = useState([]);
+
+   async function fetchQuotes() {
+
+      try {
+
+         const response = await fetch('https://dummyjson.com/quotes?limit=10');
+
+         const data = await response.json();
+
+         console.log('data.quotes', typeof data.quotes, data.quotes);
+
+         setGivenQuotes(data.quotes);
+
+      } catch (error) {
+
+         console.log(error);
+
+      };
+
+   };
+
+   function getQuotesToRender() {
+
+      if (givenQuotes) {
+
+         setQuotesToRender(givenQuotes.map((quoteItem, quoteItemIndex) => { 
+
+            return {
+
+               key: `quote${quoteItemIndex+1}`,
+               content: quoteItem.quote,
+               author: quoteItem.author
+
+            };
+
+         }))
+
+      };
+
+   };
+
+   useEffect(() => {
+
+      fetchQuotes();
+
+   }, []);
+
+   useEffect(() => {
+
+      getQuotesToRender();
+
+   }, [givenQuotes]);
+
+   console.log('givenQuotes', givenQuotes);
+
+   console.log('quotesToRender', quotesToRender);
+
 
    return (
 
