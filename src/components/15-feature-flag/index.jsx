@@ -17,7 +17,7 @@ export default function FeatureFlag() {
 
          const data = await response.json();
 
-         console.log('data.quotes', typeof data.quotes, data.quotes);
+         // console.log('data.quotes', typeof data.quotes, data.quotes);
 
          setGivenQuotes(data.quotes);
 
@@ -67,7 +67,7 @@ export default function FeatureFlag() {
 
    }, [givenQuotes]);
 
-   console.log('givenQuotes', givenQuotes);
+   // console.log('givenQuotes', givenQuotes);
 
    console.log('quotesToRender', quotesToRender);
 
@@ -81,16 +81,21 @@ export default function FeatureFlag() {
          <h2 className={`text-4xl text-center text-violet-500 font-bold`}>Feature Flag Implementation</h2>
 
          {/* Game container  */}
-         <ul className="flex flex-col justify-center items-center gap-2 mt-4">
+         <ul className="flex flex-col gap-2 mt-4 px-5 md:px-16 lg:px-32">
 
             {
                quotesToRender.map((quoteItem, quoteItemIndex) =>
                   checkEnabledFlags(quoteItem.key) ?
-                     <li key={quoteItemIndex}>
+                     <li
+                        className="rounded-lg hover:bg-slate-300 px-5 py-2"
+                        key={quoteItemIndex}
+                     >
 
-                        <p>{quoteItem.content}</p>
+                        <span  className="rounded bg-slate-200 text-violet-500 px-2 py-1">{quoteItem.key}</span>
 
-                        <span>{quoteItem.author}</span>
+                        <p className="mt-2 mb-3">{quoteItem.content}</p>
+
+                        <p className="text-right text-slate-500">{quoteItem.author}</p>
 
                      </li>
                      : null
