@@ -18,6 +18,7 @@ import CustomModals from './components/11-custom-modals';
 import GithubProfileFinder from './components/12-github-profile-finder';
 import SearchAutocomplete from './components/13-search-autocomplete-api';
 import TicTacToe from './components/14-tic-tac-toe';
+import FeatureFlag from './components/15-feature-flag';
 
 // Define the main App component
 function App() {
@@ -129,6 +130,9 @@ function App() {
 
         {/* Tic-tac-toe Component */}
         <TicTacToe />
+
+        {/* Feature Flag Component */}
+        <FeatureFlag />
 
       </section>
       {/* Components Section */}
