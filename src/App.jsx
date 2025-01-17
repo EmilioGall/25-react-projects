@@ -20,7 +20,7 @@ import SearchAutocomplete from './components/13-search-autocomplete-api';
 import TicTacToe from './components/14-tic-tac-toe';
 import FeatureFlag from './components/15-feature-flag';
 import FeatureFlagGlobalState from './components/15-feature-flag/context/index'
-import UseFetchTest from './components/16-use-fetch-custom-hook/test';
+import UseFetchHookTest from './components/16-use-fetch-custom-hook/test';
 
 
 // Define the main App component
@@ -142,7 +142,7 @@ function App() {
         </FeatureFlagGlobalState>
 
         {/* useFetch - Custom Hook Component */}
-        <UseFetchTest />
+        <UseFetchHookTest />
 
       </section>
       {/* Components Section */}

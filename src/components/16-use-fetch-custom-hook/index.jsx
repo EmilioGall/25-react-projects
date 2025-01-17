@@ -13,11 +13,20 @@ export default function useFetch(url, options = {}) {
 
       try {
 
-         const response = await fetch(url, { ...options });
+         const optionsToString =
+            Object.entries(options)
+               .map(([key, value]) => `${key}=${value}`)
+               .join('&');
+
+         const response = await fetch(`${url}${optionsToString ? '?' : null}${optionsToString}`);
+
+         console.log('response ', response);
 
          if (!response.ok) throw new Error(response.statusText);
 
          const result = await response.json();
+
+         console.log('Object.entries(options) ', Object.entries(options));
 
          setData(result);
 
@@ -42,5 +51,5 @@ export default function useFetch(url, options = {}) {
    }, [url]);
 
    return { error, loading, data };
-   
+
 };
