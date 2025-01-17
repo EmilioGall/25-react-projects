@@ -5,8 +5,8 @@ export default function useWindowResize() {
 
    const [windowsSize, setWindowSize] = useState({
 
-      width: 0,
-      height: 0
+      width: window.innerWidth,
+      height: window.innerHeight
 
    });
 
