@@ -1,5 +1,5 @@
 // Importing the useState hook from React.
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 // Importing the custom useFetch hook from the current directory.
 import useOnClickOutside from ".";
@@ -8,6 +8,10 @@ import useOnClickOutside from ".";
 export default function UseOnClickOutsideHookTest() {
 
    const [showContent, setShowContent] = useState(false);
+
+   const ref = useRef();
+
+   useOnClickOutside(ref, () => setShowContent(false));
 
    return (
 
@@ -24,15 +28,29 @@ export default function UseOnClickOutsideHookTest() {
 
                showContent ?
 
-                  <div>
+                  <div
+                     className={`bg-slate-300 rounded cursor-default flex flex-col gap-2 text-center py-5`}
+                     ref={ref}
+                  >
 
-                     <h3>This is a random content</h3>
+                     <h3 className="text-rose-950 text-xl font-bold">This is a random content</h3>
 
-                     <p>Please click outside to close</p>
+                     <p className="text-slate-700 text-md font-bold">Click outside to close</p>
 
                   </div> :
 
-                  <button onClick={()=> setShowContent(true)}>Show Content</button>
+                  <div className="text-center">
+
+                     <button
+                        className={`border border-slate-300 text-slate-300 hover:bg-slate-300 hover:text-rose-950 rounded px-3 py-2`}
+                        onClick={() => setShowContent(true)}
+                     >
+
+                        Show Content
+
+                     </button>
+
+                  </div>
 
             }
 
