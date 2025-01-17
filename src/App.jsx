@@ -22,6 +22,7 @@ import FeatureFlag from './components/15-feature-flag';
 import FeatureFlagGlobalState from './components/15-feature-flag/context/index'
 import UseFetchHookTest from './components/16-use-fetch-custom-hook/test';
 import UseOnClickOutsideHookTest from './components/17-use-outside-click-custom-hook/test';
+import UseWindowResizeHookTest from './components/18-use-window-resize/test';
 
 
 // Define the main App component
@@ -147,6 +148,9 @@ function App() {
 
         {/* useOutsideClick - Custom Hook Component */}
         <UseOnClickOutsideHookTest />
+
+        {/* useWindowResize - Custom Hook Component */}
+        <UseWindowResizeHookTest />
 
       </section>
       {/* Components Section */}
