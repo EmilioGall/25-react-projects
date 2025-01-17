@@ -1,5 +1,7 @@
-// Importing the custom useFetch hook from the current directory.
+// Importing necessary hooks from React and the custom useFetch hook.
 import { useRef, useState } from "react";
+
+// Importing the custom useFetch hook from the specified path
 import useFetch from "../16-use-fetch-custom-hook/index";
 
 export default function ScrollTopBottom() {
@@ -17,39 +19,40 @@ export default function ScrollTopBottom() {
 
    );
 
+   // Creating a ref for the bottom section for scrolling
    const bottomRef = useRef(null);
 
+   // Creating a ref for the top section for scrolling
    const topRef = useRef(null);
 
+   // Function to smoothly scroll the viewport to the bottom section
    function handleScrollToBottom() {
 
+      // Using scrollIntoView to bring the bottom section into view
       bottomRef.current.scrollIntoView({ behavior: 'smooth' });
 
    };
 
+   // Function to smoothly scroll the viewport to the top section
    function handleScrollToTop() {
 
+      // Using scrollIntoView to bring the top section into view
       topRef.current.scrollIntoView({ behavior: 'smooth' });
-
-   };
-
-   if (data) {
-
-      console.log('data.products =', data.products);
 
    };
 
    return (
 
-      // Main container for the hook test implementation.
+      // Main container for the scrolling implementation.
       <section ref={topRef} id="scroll-top-bottom" className={`relative min-h-screen w-full py-20 md:py-48 font-mono bg-blue-900`}>
 
-         {/* Title for the useWindowResize test implementation */}
+         {/* Title of the component */}
          <h2 className={`text-4xl text-center text-slate-300 font-bold cursor-default`}>Scroll to Top and Bottom</h2>
 
-         {/* Container for displaying window size information */}
+         {/* Container for the top and bottom sections with controls */}
          <div className="space-y-8 text-center text-slate-300 cursor-default mt-10 px-5 md:px-16 lg:px-32">
 
+            {/* Top Section with a button to scroll to the bottom */}
             <div className="space-y-2">
 
                <h3 className="text-2xl font-bold">Top Section</h3>
@@ -63,9 +66,11 @@ export default function ScrollTopBottom() {
 
             </div>
 
+            {/* List of products or loading status */}
             <ul>
 
                {
+                  // Display loading message if data is being fetched
                   loading ?
 
                      <li>Loading data. Please wait...</li>
@@ -74,6 +79,7 @@ export default function ScrollTopBottom() {
                }
 
                {
+                  // If data is available and contains products, map through them to create list items
                   data && data.products ?
 
                      data.products.map((productItem, productItemIndex) =>
@@ -86,6 +92,7 @@ export default function ScrollTopBottom() {
 
             </ul>
 
+{/* Bottom Section with a button to scroll to the top */}
             <div
                className="space-y-2"
                ref={bottomRef}
