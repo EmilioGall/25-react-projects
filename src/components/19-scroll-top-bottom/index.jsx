@@ -1,5 +1,5 @@
 // Importing the custom useFetch hook from the current directory.
-import { useState } from "react";
+import { useRef, useState } from "react";
 import useFetch from "../16-use-fetch-custom-hook/index";
 
 export default function ScrollTopBottom() {
@@ -17,29 +17,49 @@ export default function ScrollTopBottom() {
 
    );
 
+   const bottomRef = useRef(null);
+
+   const topRef = useRef(null);
+
+   function handleScrollToBottom() {
+
+      bottomRef.current.scrollIntoView({ behavior: 'smooth' });
+
+   };
+
+   function handleScrollToTop() {
+
+      topRef.current.scrollIntoView({ behavior: 'smooth' });
+
+   };
 
    if (data) {
-      
+
       console.log('data.products =', data.products);
-   }
-   
+
+   };
 
    return (
 
       // Main container for the hook test implementation.
-      <section id="scroll-top-bottom" className={`relative min-h-screen w-full py-20 md:py-48 font-mono bg-blue-900`}>
+      <section ref={topRef} id="scroll-top-bottom" className={`relative min-h-screen w-full py-20 md:py-48 font-mono bg-blue-900`}>
 
          {/* Title for the useWindowResize test implementation */}
          <h2 className={`text-4xl text-center text-slate-300 font-bold cursor-default`}>Scroll to Top and Bottom</h2>
 
          {/* Container for displaying window size information */}
-         <div className="flex flex-col items-center gap-10 text-center text-slate-300 cursor-default mt-10 px-5 md:px-16 lg:px-32">
+         <div className="space-y-8 text-center text-slate-300 cursor-default mt-10 px-5 md:px-16 lg:px-32">
 
-            <div className="">
+            <div className="space-y-2">
 
-               <h3>Top Section</h3>
+               <h3 className="text-2xl font-bold">Top Section</h3>
 
-               <button>Go to the bottom of the list</button>
+               <button
+                  className="text-xl border border-slate-300 hover:bg-slate-300 hover:text-blue-900 rounded-md px-3 py-1"
+                  onClick={handleScrollToBottom}
+               >
+                  Scroll to Bottom Section
+               </button>
 
             </div>
 
@@ -66,11 +86,20 @@ export default function ScrollTopBottom() {
 
             </ul>
 
-            <div>
+            <div
+               className="space-y-2"
+               ref={bottomRef}
+            >
 
-               <h3>Bottom Section</h3>
+               <h3 className="text-2xl font-bold">Bottom Section</h3>
 
-               <button>Go to the top of the list</button>
+               <button
+                  className="text-xl border border-slate-300 hover:bg-slate-300 hover:text-blue-900 rounded-md px-3 py-1"
+                  onClick={handleScrollToTop}
+               >
+                  Scroll to Top Section
+
+               </button>
 
             </div>
 
