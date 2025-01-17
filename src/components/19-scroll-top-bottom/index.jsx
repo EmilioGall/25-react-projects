@@ -1,4 +1,28 @@
+// Importing the custom useFetch hook from the current directory.
+import { useState } from "react";
+import useFetch from "../16-use-fetch-custom-hook/index";
+
 export default function ScrollTopBottom() {
+
+   // State variables to manage query parameters for the fetch request.
+   const [limit, setLimit] = useState(100); // Limit of products to fetch.
+   const [skip, setSkip] = useState(0); // Number of products to skip.
+   const [order, setOrder] = useState('asc'); // Order of the products (ascending).
+
+   // Call the useFetch hook, passing in the API URL and the options object built from state.
+   const { error, loading, data } = useFetch(
+
+      'https://dummyjson.com/products',
+      { limit: limit, skip: skip, order: order }
+
+   );
+
+
+   if (data) {
+      
+      console.log('data.products =', data.products);
+   }
+   
 
    return (
 
@@ -9,8 +33,46 @@ export default function ScrollTopBottom() {
          <h2 className={`text-4xl text-center text-slate-300 font-bold cursor-default`}>Scroll to Top and Bottom</h2>
 
          {/* Container for displaying window size information */}
-         <div className="text-center text-xl text-slate-300 cursor-default mt-4 px-5 md:px-16 lg:px-32">
+         <div className="flex flex-col items-center gap-10 text-center text-slate-300 cursor-default mt-10 px-5 md:px-16 lg:px-32">
 
+            <div className="">
+
+               <h3>Top Section</h3>
+
+               <button>Go to the bottom of the list</button>
+
+            </div>
+
+            <ul>
+
+               {
+                  loading ?
+
+                     <li>Loading data. Please wait...</li>
+
+                     : null
+               }
+
+               {
+                  data && data.products ?
+
+                     data.products.map((productItem, productItemIndex) =>
+
+                        <li key={productItemIndex}>{productItem.title}</li>
+                     )
+
+                     : null
+               }
+
+            </ul>
+
+            <div>
+
+               <h3>Bottom Section</h3>
+
+               <button>Go to the top of the list</button>
+
+            </div>
 
          </div>
 
