@@ -113,6 +113,12 @@ const sideMenu = [
       to: '#use-on-click-outside'
    },
 
+   {
+      number: '18',
+      label: 'useWindowResize',
+      to: '#use-window-resize'
+   },
+
 ];
 
 export default sideMenu;
