@@ -119,6 +119,12 @@ const sideMenu = [
       to: '#use-window-resize'
    },
 
+   {
+      number: '19',
+      label: 'Scroll Buttons',
+      to: '#scroll-top-bottom'
+   },
+
 ];
 
 export default sideMenu;
