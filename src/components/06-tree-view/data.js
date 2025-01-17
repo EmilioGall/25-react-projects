@@ -101,6 +101,12 @@ const sideMenu = [
       to: '#feature-flag'
    },
 
+   {
+      number: '16',
+      label: 'useFetch Custom-hook',
+      to: '#use-fetch'
+   },
+
 ];
 
 export default sideMenu;
