@@ -103,8 +103,14 @@ const sideMenu = [
 
    {
       number: '16',
-      label: 'useFetch Custom-hook',
+      label: 'useFetch',
       to: '#use-fetch'
+   },
+
+   {
+      number: '17',
+      label: 'useOnClickOutside',
+      to: '#use-on-click-outside'
    },
 
 ];

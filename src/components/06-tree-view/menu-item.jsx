@@ -58,7 +58,7 @@ export default function MenuItem({ item, itemId }) {
       <li className="md:ml-4">
 
          {/* Render a container for the link with conditional styling */}
-         <div className={`flex justify-center md:justify-start gap-2 items-center hover:bg-cyan-600 px-3 py-1 ${displayCurChildren[item.label] ? 'mb-1.5 md:bg-slate-600' : ''} ${state.scrollIndicator && itemId === 8 ? 'mb-1.5 bg-slate-600 rounded-e-lg' : 'rounded-lg'}`}>
+         <div className={`flex justify-center md:justify-start gap-2 items-center hover:bg-cyan-600 px-3 py-1 ${displayCurChildren[item.label] ? 'mb-1.5 md:bg-slate-600' : ''} ${state.scrollIndicator && itemId === 8 ? 'bg-slate-600 rounded-e-lg' : 'rounded-lg'}`}>
 
             {/* Anchor element for the menu item with its properties */}
             <a href={item.to}
@@ -69,7 +69,7 @@ export default function MenuItem({ item, itemId }) {
                   item && item.number && itemId !== 8 ?
 
                      // Display item number if available
-                     <span className="font-bold text-xl text-slate-100">{item.number}</span>
+                     <span className="font-bold text-lg text-slate-100">{item.number}</span>
 
                      : null
                }
@@ -78,7 +78,7 @@ export default function MenuItem({ item, itemId }) {
                   item && item.number && itemId === 8 ?
 
                      // Display item number if available
-                     <span onClick={handleToogleVisibility} className="font-bold text-2xl text-slate-100">{item.number}</span>
+                     <span onClick={handleToogleVisibility} className="font-bold text-xl text-slate-100">{item.number}</span>
 
                      : null
                }
