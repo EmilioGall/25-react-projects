@@ -14,7 +14,7 @@ export default function TreeView({ sideMenu = [] }) {
    return (
 
       // Main section of the SideBar Menu component
-      <section id="tree-view" className="p-1 font-mono">
+      <section id="tree-view" className="h-full p-1 font-mono overflow-y-auto overflow-x-hidden">
 
          {/* Header container for the tree view */}
          <div className="flex gap-2 p-2 items-center justify-center md:justify-start">
