@@ -122,7 +122,23 @@ const sideMenu = [
    {
       number: '19',
       label: 'Scroll Buttons',
-      to: '#scroll-top-bottom'
+      to: '#scroll-top-bottom',
+      children: [
+         {
+            label: 'Start',
+            to: '#scroll-top-bottom',
+         },
+         {
+            label: 'End',
+            to: '#scroll-bottom-top',
+         }
+      ]
+   },
+
+   {
+      number: '20',
+      label: 'Scroll to Section',
+      to: '#scroll-to-section'
    },
 
 ];

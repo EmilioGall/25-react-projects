@@ -11,7 +11,7 @@ export default function MenuList({ menuList = [] }) {
    return (
 
       // Flex container for menu items
-      <ul className="flex flex-col justify-center gap-2">
+      <ul className="flex flex-col justify-center gap-1">
 
          {
             // Check if menuList has items; if so, map over the array to render MenuItem for each
