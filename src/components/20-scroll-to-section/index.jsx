@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function ScrollToSection() {
 
@@ -20,6 +20,26 @@ export default function ScrollToSection() {
 
    };
 
+   useEffect(() => {
+
+      // Initialize an array to hold the new card data
+      const newCardsData = [];
+
+      for (let i = 0; i < 20; i++) {
+
+         // Add new card objects to the array
+         newCardsData.push({ label: `Card-${i + 1}`, bgColor: 'bg-fuchsia-500' });
+
+      }
+
+      // Set the entire new array as the state
+      setCardsData(newCardsData);
+
+   }, []);
+
+   console.log('cardsData =', cardsData);
+
+
    return (
 
       // Main container for the scrolling implementation.
@@ -29,12 +49,26 @@ export default function ScrollToSection() {
          <h2 className={`text-4xl text-center text-slate-800 font-bold cursor-default`}>Scroll to Section</h2>
 
          {/* Container for the top and bottom sections with controls */}
-         <div className="space-y-2 text-center text-slate-300 cursor-default mt-10 px-5 md:px-16 lg:px-32">
+         <ul className="space-y-5 text-center text-slate-300 cursor-default mt-10 px-5 md:px-16 lg:px-32">
 
             {
+
+               cardsData && cardsData.length > 0 ?
+
+                  cardsData.map((cardItem, cardItemIndex) =>
+                     <li
+                        key={`card-${cardItemIndex + 1}`}
+                        className={`${cardItem.bgColor} rounded-xl text-xl text-slate-800 py-10`}
+                     >
+                        {cardItem.label}
+
+                     </li>
+                  )
+
+                  : null
             }
 
-         </div>
+         </ul>
 
       </section>
 
