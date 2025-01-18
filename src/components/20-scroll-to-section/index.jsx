@@ -4,19 +4,21 @@ export default function ScrollToSection() {
 
    const [cardsData, setCardsData] = useState([]);
 
+   const chosenCardIndex = 12;
+
    const ref = useRef();
 
    // Function to smoothly scroll the viewport to the top section
    function handleScrollToSection() {
 
-      // Using scrollIntoView to bring the top section into view
-      topRef.current.scrollIntoView({ behavior: 'smooth' });
+      let pos = ref.current.getBoundingClientRect().top + window.scrollY;
 
-   };
+      window.scrollTo({
 
-   function printDataCards() {
+         top: pos,
+         behavior: 'smooth'
 
-
+      });
 
    };
 
@@ -39,17 +41,23 @@ export default function ScrollToSection() {
 
    console.log('cardsData =', cardsData);
 
-
    return (
 
       // Main container for the scrolling implementation.
-      <section id="scroll-to-section" className={`relative min-h-screen w-full py-20 md:py-48 font-mono bg-slate-300`}>
+      <section id="scroll-to-section" className={`relative flex flex-col items-center gap-5 min-h-screen w-full py-20 md:py-48 font-mono bg-slate-300`}>
 
          {/* Title of the component */}
          <h2 className={`text-4xl text-center text-slate-800 font-bold cursor-default`}>Scroll to Section</h2>
 
+         <button
+            className="text-xl border border-fuchsia-500 hover:bg-fuchsia-500 hover:text-slate-300 rounded-md px-5 py-1"
+            onClick={handleScrollToSection}
+         >
+            Scroll to Card-{chosenCardIndex+1}
+         </button>
+
          {/* Container for the top and bottom sections with controls */}
-         <ul className="space-y-5 text-center text-slate-300 cursor-default mt-10 px-5 md:px-16 lg:px-32">
+         <ul className="space-y-5 text-center text-slate-300 cursor-default mt-5 md:px-16 lg:px-32">
 
             {
 
@@ -57,8 +65,9 @@ export default function ScrollToSection() {
 
                   cardsData.map((cardItem, cardItemIndex) =>
                      <li
+                        ref={cardItemIndex === chosenCardIndex ? ref : null}
                         key={`card-${cardItemIndex + 1}`}
-                        className={`${cardItem.bgColor} rounded-xl text-xl text-slate-800 py-10`}
+                        className={`${cardItem.bgColor} rounded-xl text-xl text-slate-800 py-10 px-64`}
                      >
                         {cardItem.label}
 
