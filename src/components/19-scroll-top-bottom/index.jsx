@@ -92,8 +92,9 @@ export default function ScrollTopBottom() {
 
             </ul>
 
-{/* Bottom Section with a button to scroll to the top */}
+            {/* Bottom Section with a button to scroll to the top */}
             <div
+               id="scroll-bottom-top"
                className="space-y-2"
                ref={bottomRef}
             >
